@@ -29,7 +29,7 @@ void Button::Update()
 	{
 		if (GameEngine::Instance()->GetLeftMouse() && m_bReleased)
 		{
-			GameEngine::Instance()->GetAM()->PlaySound("button click");
+			
 			m_iFrame = MOUSE_DOWN;
 			m_bReleased = false;
 		}
