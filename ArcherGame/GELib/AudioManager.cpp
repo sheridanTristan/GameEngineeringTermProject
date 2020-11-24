@@ -101,8 +101,8 @@ void AudioManager::UnloadMusic(AudioScope scope)
 void AudioManager::UnloadSound(AudioScope scope)
 {
 	std::map<string, AudioTrack<Mix_Chunk*>> tracks = m_Sounds;
-	for (auto& track : m_Sounds) {
-		if ((track.second.GetScope() & scope)  == track.second.GetScope()) {
+	for (auto& track : tracks) {
+		if ((track.second.GetScope() & scope) == track.second.GetScope()) {
 			Mix_FreeChunk(track.second.GetAudioObject());
 			m_Sounds.erase(track.first);
 		}
