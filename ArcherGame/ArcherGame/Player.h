@@ -15,7 +15,7 @@ private:
 public:
 	Player(SDL_Texture* tex, double x, double y);
 	~Player();
-	void Update();
+	virtual void Update();
 	void Render();
 	void GetMouseInput();
 	void ShootArrow();
