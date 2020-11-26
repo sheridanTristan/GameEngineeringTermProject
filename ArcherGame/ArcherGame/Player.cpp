@@ -36,9 +36,11 @@ void Player::GetMouseInput() {
 		pointX = GameEngine::Instance()->GetMouseX();
 		pointY = GameEngine::Instance()->GetMouseY();
 		SDL_Log("Mouse Button 1 (left) is pressed.");
+		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
 	}
 	else if (!GameEngine::Instance()->GetLeftMouse())
 	{
+		
 		m_bReleased = true;
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
