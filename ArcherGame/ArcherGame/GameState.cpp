@@ -17,7 +17,8 @@ void GameState::Enter()
 	bg = new SpriteEx(bgSpriteTex, bgSrcRect, bgDestRect);
 
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.10, bgDestRect.h - 100);
-
+	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
+	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
 }
 
 

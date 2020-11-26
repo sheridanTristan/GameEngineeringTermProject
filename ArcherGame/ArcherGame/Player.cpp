@@ -30,6 +30,7 @@ void Player::UpdatePlayer(){
 }
 
 void Player::GetMouseInput() {
+	
 	if (GameEngine::Instance()->GetLeftMouse() && m_bReleased) {
 		m_iFrame = MOUSE_DOWN;
 		m_bReleased = false;
@@ -37,13 +38,16 @@ void Player::GetMouseInput() {
 		pointY = GameEngine::Instance()->GetMouseY();
 		SDL_Log("Mouse Button 1 (left) is pressed.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
+		
 	}
-	else if (!GameEngine::Instance()->GetLeftMouse())
+	else if (!GameEngine::Instance()->GetLeftMouse() && !m_bReleased)
 	{
 		
 		m_bReleased = true;
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
+		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
+		
 	}
 	else
 		m_iFrame = MOUSE_UP;
