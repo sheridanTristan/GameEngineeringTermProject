@@ -14,6 +14,7 @@ template <typename T>
 private:
 	AudioScope m_Scope;
 	T m_obj;
+	
 public:
 	AudioTrack(){}
 	AudioTrack(AudioScope scope, T obj);
@@ -27,7 +28,8 @@ class AudioManager
 private:
 
 	
-
+	int soundToggle;
+	int musicToggle;
 
 
 	map<string, AudioTrack<Mix_Music*>> m_MusicTracks;
@@ -58,7 +60,7 @@ public:
 
 	//Toggle music:: so that you can pause and resume the current music track
 	void ToggleMusic();
-
+	void ToggleSound();
 
 
 };
