@@ -4,8 +4,6 @@
 
 using namespace std;
 
-//Singleton pattern for Game class 
-//is defined as follows
 GameEngine* GameEngine::Instance()
 {
 	static GameEngine* instance = new GameEngine();
