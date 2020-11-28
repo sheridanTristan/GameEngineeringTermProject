@@ -1,5 +1,7 @@
 #pragma once
 #include "SpriteEx.h"
+#include "Arrow.h"
+
 using namespace std;
 
 class Player :public SpriteExAnimated
@@ -7,6 +9,9 @@ class Player :public SpriteExAnimated
 private:
 	void UpdatePlayer();
 	bool m_bReleased = true;
+
+	Arrow* playerArrow;
+	
 	enum state { MOUSE_UP, MOUSE_OVER, MOUSE_DOWN };
 	int mx=0;
 	int my=0;
@@ -18,5 +23,6 @@ public:
 	void Update();
 	void Render();
 	void GetMouseInput();
-	void ShootArrow();
+	void ShootArrow(float velocity,float angle);
+	void UpdateArrow();
 };
