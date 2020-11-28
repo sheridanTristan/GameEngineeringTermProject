@@ -37,11 +37,38 @@ void Player::GetMouseInput() {
 		pointY = GameEngine::Instance()->GetMouseY();
 		SDL_Log("Mouse Button 1 (left) is pressed.");
 	}
+<<<<<<< HEAD
 	else if (!GameEngine::Instance()->GetLeftMouse())
+=======
+	else if (!GameEngine::Instance()->GetLeftMouse()&& !m_bReleased)
+		SDL_Log("Mouse Button 1 (left) is pressed.");
+		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
+		
+	}
+	else if (!GameEngine::Instance()->GetLeftMouse() && !m_bReleased)
+>>>>>>> parent of 7dd23a6... Revert "Pull from master"
 	{
+		
 		m_bReleased = true;
+<<<<<<< HEAD
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
+=======
+		m_iFrame = MOUSE_UP;
+		
+		//check to see which is the greater distince to use as power/launchVelocity
+		if (pointX - mx > my - pointY) {
+			launchVelocity = pointX - mx;
+		}
+		else
+			launchVelocity = my - pointY;
+
+	ShootArrow(launchVelocity,-(atan2(my-pointY,pointX-mx))*180/M_PI);
+		m_iFrame = MOUSE_OVER;
+		SDL_Log("Mouse Button 1 (left) is released.");
+		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
+		
+>>>>>>> parent of 7dd23a6... Revert "Pull from master"
 	}
 	else
 		m_iFrame = MOUSE_UP;

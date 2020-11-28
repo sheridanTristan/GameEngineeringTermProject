@@ -4,6 +4,7 @@
 #include "ScreenState.h"
 #include "SpriteEx.h"
 #include <iostream>
+#include "Enemy.h"
 using namespace std;
 
 class GameState : public ScreenState
@@ -15,6 +16,7 @@ protected:
 	SpriteEx* bg;
 
 	Player* player;
+	Enemy* enemy;
 
 public:
 	GameState() {}
