@@ -39,13 +39,7 @@ void Player::GetMouseInput() {
 		pointY = GameEngine::Instance()->GetMouseY();
 	}
 	else if (!GameEngine::Instance()->GetLeftMouse()&& !m_bReleased)
-		SDL_Log("Mouse Button 1 (left) is pressed.");
-		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
-		
-	}
-	else if (!GameEngine::Instance()->GetLeftMouse() && !m_bReleased)
 	{
-		
 		m_bReleased = true;
 		m_iFrame = MOUSE_UP;
 		
@@ -57,10 +51,6 @@ void Player::GetMouseInput() {
 			launchVelocity = my - pointY;
 
 	ShootArrow(launchVelocity,-(atan2(my-pointY,pointX-mx))*180/M_PI);
-		m_iFrame = MOUSE_OVER;
-		SDL_Log("Mouse Button 1 (left) is released.");
-		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
-		
 	}
 	else
 		SDL_Log("Mouse UP");

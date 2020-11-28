@@ -157,7 +157,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -165,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrow.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TestLevel.h" />

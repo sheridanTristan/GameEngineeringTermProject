@@ -10,7 +10,7 @@ AudioManager::AudioManager()
 
 bool AudioManager::Init()
 {
-	
+
 	if (Mix_Init(MIX_INIT_MP3) == 0)
 	{
 		cout << "Mixer init failed\n";
@@ -20,10 +20,7 @@ bool AudioManager::Init()
 	{
 		Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096);
 		Mix_AllocateChannels(16);
-		soundToggle = 1;
-		musicToggle = 1;
 		return true;
-		
 	}
 }
 
@@ -47,11 +44,8 @@ void AudioManager::PlayMusic(const char * id, int loops)
 
 void AudioManager::PlaySound(const char* id, int channel, int loops)
 {
-	if (soundToggle == 1) {
-		AudioTrack<Mix_Chunk*> session = m_Sounds[id];
-		Mix_PlayChannel(channel, session.GetAudioObject(), loops);
-	}
-
+	AudioTrack<Mix_Chunk*> session = m_Sounds[id];
+	Mix_PlayChannel(channel,session.GetAudioObject(), loops);
 }
 
 
@@ -88,12 +82,6 @@ void AudioManager::ToggleMusic()
 		Mix_ResumeMusic();
 	else
 		Mix_PauseMusic();
-
-}
-
-void AudioManager::ToggleSound()
-{
-	soundToggle = soundToggle ^ 1;
 
 }
 

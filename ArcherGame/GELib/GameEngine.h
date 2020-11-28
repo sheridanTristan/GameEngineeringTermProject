@@ -13,7 +13,6 @@
 
 #include "StateMachine.h"
 #include "AudioManager.h"
-
 using namespace std;
 
 class GameEngine
