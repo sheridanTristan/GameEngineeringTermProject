@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "GameEngine.h"
+#include <math.h>
 
 Player::Player(SDL_Texture* tex, double x, double y) :
 	SpriteExAnimated(tex, x - 50, y - 50, 0)
@@ -15,27 +16,27 @@ Player::~Player() {
 
 void Player::Render() {
 	this->SpriteExAnimated::Render();
-
+	if (playerArrow) {
+		playerArrow->Render();
+	}
 }
 
 void Player::Update() {
-
 	this->UpdatePlayer();
 }
 
 void Player::UpdatePlayer(){
-
 	GetMouseInput();
-
 }
 
 void Player::GetMouseInput() {
+	float launchVelocity;
+
 	if (GameEngine::Instance()->GetLeftMouse() && m_bReleased) {
 		m_iFrame = MOUSE_DOWN;
 		m_bReleased = false;
 		pointX = GameEngine::Instance()->GetMouseX();
 		pointY = GameEngine::Instance()->GetMouseY();
-		SDL_Log("Mouse Button 1 (left) is pressed.");
 	}
 <<<<<<< HEAD
 	else if (!GameEngine::Instance()->GetLeftMouse())
@@ -54,6 +55,10 @@ void Player::GetMouseInput() {
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
 =======
+	else if (!GameEngine::Instance()->GetLeftMouse() && !m_bReleased)
+	{
+		
+		m_bReleased = true;
 		m_iFrame = MOUSE_UP;
 		
 		//check to see which is the greater distince to use as power/launchVelocity
@@ -62,6 +67,8 @@ void Player::GetMouseInput() {
 		}
 		else
 			launchVelocity = my - pointY;
+		SDL_Log("Mouse Button 1 (left) is pressed.");
+		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
 
 	ShootArrow(launchVelocity,-(atan2(my-pointY,pointX-mx))*180/M_PI);
 		m_iFrame = MOUSE_OVER;
@@ -71,16 +78,22 @@ void Player::GetMouseInput() {
 >>>>>>> parent of 7dd23a6... Revert "Pull from master"
 	}
 	else
-		m_iFrame = MOUSE_UP;
+		SDL_Log("Mouse UP");
 
 	if (m_bReleased == false)
 	{
-
 		mx = GameEngine::Instance()->GetMouseX();
 		my = GameEngine::Instance()->GetMouseY();
-		cout << pointX << endl;
-		cout << pointY << endl;
-		cout << mx << endl;
-		cout << my << endl;
+	}
+	UpdateArrow();
+}
+
+void Player::ShootArrow(float velocity,float angle) {
+	playerArrow = new Arrow(texture, m_X, m_Y, angle,velocity);
+}
+
+void Player::UpdateArrow() {
+	if (playerArrow) {
+		playerArrow->Update();
 	}
 }
