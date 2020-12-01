@@ -6,7 +6,7 @@
 int main(int argc, char* argv[]) {
 
 	if (!GameEngine::Instance()->Init("ArcherGame", SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED, 1920, 1080, 0))
+		SDL_WINDOWPOS_CENTERED, 1080, 720, 0))
 		return -1;
 
 	GameEngine::Instance()->GetFSM()->ChangeState(new TestLevel());

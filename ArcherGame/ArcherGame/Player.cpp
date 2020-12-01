@@ -5,6 +5,7 @@
 Player::Player(SDL_Texture* tex, double x, double y) :
 	SpriteExAnimated(tex, x - 50, y - 50, 0)
 {
+	turn = true;
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
 
@@ -53,7 +54,7 @@ void Player::GetMouseInput() {
 		SDL_Log("Mouse Button 1 (left) is pressed.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
 
-	ShootArrow(launchVelocity,-(atan2(my-pointY,pointX-mx))*180/M_PI);
+		this->ShootArrow(launchVelocity,-(atan2(my-pointY,pointX-mx))*180/M_PI);
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
@@ -67,11 +68,13 @@ void Player::GetMouseInput() {
 		mx = GameEngine::Instance()->GetMouseX();
 		my = GameEngine::Instance()->GetMouseY();
 	}
-	UpdateArrow();
+	this->UpdateArrow();
 }
 
 void Player::ShootArrow(float velocity,float angle) {
 	playerArrow = new Arrow(texture, m_X, m_Y, angle,velocity);
+	cout << velocity << endl;
+	cout << angle << endl;
 }
 
 void Player::UpdateArrow() {

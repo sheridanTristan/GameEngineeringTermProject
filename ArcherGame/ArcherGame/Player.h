@@ -11,6 +11,8 @@ private:
 	bool m_bReleased = true;
 
 	Arrow* playerArrow;
+
+	bool turn;
 	
 	enum state { MOUSE_UP, MOUSE_OVER, MOUSE_DOWN };
 	int mx=0;
@@ -21,8 +23,11 @@ public:
 	Player(SDL_Texture* tex, double x, double y);
 	~Player();
 	virtual void Update();
-	void Render();
+	virtual void Render();
 	void GetMouseInput();
 	void ShootArrow(float velocity,float angle);
 	void UpdateArrow();
+
+	void SetTurn(bool t){ turn = t; }
+	bool GetTurn() { return turn; }
 };

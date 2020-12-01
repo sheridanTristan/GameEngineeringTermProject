@@ -17,7 +17,6 @@ public:
 
 	Arrow(SDL_Texture* tex, double x, double y, double a,float velocity) :SpriteExAnimated(tex, x, y, a)
 	{
-		
 		m_DX = x;
 		m_DY =y;
 		this->x = x;
