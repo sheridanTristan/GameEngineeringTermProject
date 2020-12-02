@@ -13,7 +13,7 @@ void HighScoreState::Enter()
 
 	m_pFont = TTF_OpenFont("Font/CONSOLAB.TTF", 36);
 
-	menuButtons.push_back(new Button("Img/Retry.png", { 0,0,512,256 }, { 400,620,256,78 }));
+	menuButtons.push_back(new Button("Img/Back.png", { 0,0,512,256 }, { 400,620,256,78 }));
 
 }
 

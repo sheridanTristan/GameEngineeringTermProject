@@ -172,6 +172,7 @@
     <ClInclude Include="VictoryState.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Img\Back.png" />
     <Image Include="Img\GameOver.png" />
     <Image Include="Img\HiScore.png" />
     <Image Include="Img\Play.png" />

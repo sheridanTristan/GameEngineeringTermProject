@@ -88,6 +88,9 @@
     <Image Include="Img\Resume.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Img\Back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Font\CONSOLAB.TTF">
