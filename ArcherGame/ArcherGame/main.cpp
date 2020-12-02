@@ -11,6 +11,8 @@ int main(int argc, char* argv[]) {
 
 	GameEngine::Instance()->GetFSM()->ChangeState(new TestLevel());
 
+	
+
 	while (GameEngine::Instance()->IsRunning()) {
 		GameEngine::Instance()->HandleEvents();
 		GameEngine::Instance()->Update();
