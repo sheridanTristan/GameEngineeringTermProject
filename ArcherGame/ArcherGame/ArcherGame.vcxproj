@@ -162,7 +162,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
-    <ClCompile Include="Score.cpp" />
     <ClCompile Include="VictoryState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +169,6 @@
     <ClInclude Include="HighScoreState.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseMenuState.h" />
-    <ClInclude Include="Score.h" />
     <ClInclude Include="VictoryState.h" />
   </ItemGroup>
   <ItemGroup>

@@ -111,6 +111,10 @@ bool GameEngine::KeyUp(SDL_Scancode c)
 	else return false;
 }
 
+void GameEngine::AddScore(float no)
+{
+	scores.push_back(new Score(no));
+}
 
 
 void GameEngine::Update()

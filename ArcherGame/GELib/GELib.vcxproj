@@ -22,6 +22,7 @@
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="ScreenState.h" />
     <ClInclude Include="SpriteEx.h" />
     <ClInclude Include="StateMachine.h" />
@@ -30,6 +31,7 @@
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="ScreenState.cpp" />
     <ClCompile Include="SpriteEx.cpp" />
     <ClCompile Include="StateMachine.cpp" />
