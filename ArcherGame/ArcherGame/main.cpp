@@ -3,10 +3,10 @@
 #include "MainMenuState.h"
 #include "GameOverState.h"
 #include "VictoryState.h"
-
+#include "Score.h"
 
 int main(int argc, char** argv) {
-
+	vector<Score*> scores;
 	if (!GameEngine::Instance()->Init("Archery Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 768, 0)) {
 		
 		return -1;
