@@ -2,7 +2,9 @@
 #include "GameEngine.h"
 #include "SDL.h"
 #include "TestLevel.h"
-
+#include "MainMenuState.h"
+#include "GameOverState.h"
+#include "VictoryState.h"
 int main(int argc, char* argv[]) {
 
 	if (!GameEngine::Instance()->Init("ArcherGame", SDL_WINDOWPOS_CENTERED,
