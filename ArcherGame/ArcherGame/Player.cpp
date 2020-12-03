@@ -1,4 +1,5 @@
 #include "Player.h"
+
 #include "GameEngine.h"
 #include <math.h>
 
@@ -8,7 +9,8 @@ Player::Player(SDL_Texture* tex, double x, double y) :
 	turn = true;
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
-
+	
+	
 }
 
 Player::~Player() {
@@ -20,6 +22,14 @@ void Player::Render() {
 	if (playerArrow) {
 		playerArrow->Render();
 	}
+	SDL_RenderDrawRect(GameEngine::Instance()->GetRenderer(), &powerBarBorder);
+	SDL_SetRenderDrawColor(GameEngine::Instance()->GetRenderer(), 255, 0, 0, 255);//making the power meter red
+
+	
+	SDL_RenderFillRect(GameEngine::Instance()->GetRenderer(), &powerBarFill);//making the power meter red
+
+	
+
 }
 
 void Player::Update() {
@@ -32,6 +42,7 @@ void Player::UpdatePlayer(){
 
 void Player::GetMouseInput() {
 	float launchVelocity;
+	
 
 	if (GameEngine::Instance()->GetLeftMouse() && m_bReleased) {
 		m_iFrame = MOUSE_DOWN;
@@ -52,6 +63,8 @@ void Player::GetMouseInput() {
 		}
 		else
 			launchVelocity = my - pointY;
+		
+		
 		SDL_Log("Mouse Button 1 (left) is pressed.");
 		
 
@@ -68,6 +81,14 @@ void Player::GetMouseInput() {
 	{
 		mx = GameEngine::Instance()->GetMouseX();
 		my = GameEngine::Instance()->GetMouseY();
+
+		if (pointX - mx > my - pointY) {
+			launchVelocity = pointX - mx;
+		}
+		else
+			launchVelocity = my - pointY;
+		power = launchVelocity / 10;
+		powerBarFill = { 70,610,power,10 };
 	}
 	this->UpdateArrow();
 }

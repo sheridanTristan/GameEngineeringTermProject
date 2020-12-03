@@ -1,5 +1,6 @@
 #include "GameState.h"
 #include "GameEngine.h"
+#include "PauseMenuState.h"
 
 void GameState::Enter()
 {
@@ -28,6 +29,12 @@ void GameState::Update()
 {
 	if (player) player->Update();
 	if (enemy) enemy->Update();
+	
+	if (GameEngine::Instance()->KeyDown(SDL_SCANCODE_ESCAPE) == 1)
+	{
+		GameEngine::Instance()->GetFSM()->PushState(new PauseMenuState());
+		return;
+	}
 }
 
 

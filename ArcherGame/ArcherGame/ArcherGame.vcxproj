@@ -159,6 +159,8 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="HighScoreState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TestLevel.cpp" />
@@ -169,6 +171,33 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TestLevel.h" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="PauseMenuState.cpp" />
+    <ClCompile Include="VictoryState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="HighScoreState.h" />
+    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="PauseMenuState.h" />
+    <ClInclude Include="VictoryState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Img\Back.png" />
+    <Image Include="Img\GameOver.png" />
+    <Image Include="Img\HiScore.png" />
+    <Image Include="Img\Play.png" />
+    <Image Include="Img\Quit.png" />
+    <Image Include="Img\Resume.png" />
+    <Image Include="Img\Retry.png" />
+    <Image Include="Img\Stages\Stage1.png" />
+    <Image Include="Img\Stages\Stage2.png" />
+    <Image Include="Img\Stages\Stage3.png" />
+    <Image Include="Img\Stages\Stage4.png" />
+    <Image Include="Img\Victory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Font\CONSOLAB.TTF" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

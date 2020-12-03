@@ -48,5 +48,80 @@
     <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Img\GameOver.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\HiScore.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Play.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Quit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Victory.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Stages\Stage1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Stages\Stage2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Stages\Stage3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Stages\Stage4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Retry.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Resume.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Img\Back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Font\CONSOLAB.TTF">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>
