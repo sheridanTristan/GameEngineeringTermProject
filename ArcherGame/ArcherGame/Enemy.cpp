@@ -54,7 +54,7 @@ void Enemy::ShootArrow()
 {
 	float velocity = 0;
 	//determine random angle and velocity
-	float velocity = 0;
+	
 	//determine random angle and velocity
 	float angle = rand() % (210 - 180 + 1) + 180;
 	//cout << "angle is: " << angle<<endl;
