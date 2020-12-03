@@ -1,6 +1,5 @@
 #include "PauseMenuState.h"
 #include "MainMenuState.h"
-// #include "GameState.h"
 
 /*
  * Implementation of virtual methods in PauseMenuState.h 
@@ -34,7 +33,7 @@ void PauseMenuState::Update()
 		GameEngine::Instance()->GetFSM()->PopState();
 	}
 
-	if (menuButtons[btn::exit]->Clicked())
+	else if (menuButtons[btn::exit]->Clicked())
 	{
 		GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
 	}

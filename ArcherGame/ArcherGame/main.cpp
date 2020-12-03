@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 		SDL_WINDOWPOS_CENTERED, 1080, 720, 0))
 		return -1;
 
-	GameEngine::Instance()->GetFSM()->ChangeState(new TestLevel());
+	GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
 
 	
 
