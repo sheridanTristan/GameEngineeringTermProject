@@ -2,7 +2,7 @@
 
 #include "ScreenState.h"
 #include <vector>
-#include "Button.h"
+#include "../GELib/Button.h"
 using namespace std;
 
 class LevelSelector : public ScreenState
