@@ -9,10 +9,10 @@ using namespace std;
 
 void LevelSelector::Enter()
 {
-	m_vButtons.push_back(new Button("Img/red.png", { 1,1,401,81 }, { 412,200,200,80 }));
-	m_vButtons.push_back(new Button("Img/red.png", { 2,2,601,101 }, { 412,400,200,80 }));
-	m_vButtons.push_back(new Button("Img/red.png", { 3,3,801,121 }, { 412,200,200,80 }));
-
+	m_vButtons.push_back(new Button("Img/Stages/Stage1.png", { 1,1,401,81 }, { 412,200,200,80 }));
+	m_vButtons.push_back(new Button("Img/Stages/Stage2.png", { 2,2,601,101 }, { 412,400,200,80 }));
+	m_vButtons.push_back(new Button("Img/Stages/Stage3.png", { 3,3,801,121 }, { 412,200,200,80 }));
+	m_vButtons.push_back(new Button("Img/Stages/Stage4.png", { 3,3,801,121 }, { 412,200,200,80 }));
 
 
 }
