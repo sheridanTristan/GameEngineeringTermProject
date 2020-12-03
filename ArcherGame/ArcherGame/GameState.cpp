@@ -59,8 +59,13 @@ void GameState::Render()
 void GameState::Exit()
 {
 	SDL_DestroyTexture(bgSpriteTex);
+	SDL_DestroyTexture(archerSpriteTex);
+	delete bg;
+	delete player;
+	delete enemy;
 	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
 	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
+	
 
 }
 

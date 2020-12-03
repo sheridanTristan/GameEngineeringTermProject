@@ -18,7 +18,8 @@ void GameManager::ReadScores(std::string textFile) {
     fstream file;
     file.open(textFile, ios::in);
     if (!file) {
-        std::cout << "Could not open file " << textFile;
+        std::cout << "Could not open file " << textFile << "\n";
+        return;
     }
     else {
         char ch;
@@ -44,5 +45,6 @@ void GameManager::ReadScores(std::string textFile) {
 
         }
         m_Scores = scores;
+        scores.clear();
     }
 }
