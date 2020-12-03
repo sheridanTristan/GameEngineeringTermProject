@@ -37,21 +37,29 @@ void AudioManager::SetMusicVolume(int volLevel)
 
 }
 
-
-
 void AudioManager::PlayMusic(const char * id, int loops)
 {
-	AudioTrack<Mix_Music*> session = m_MusicTracks[id];
-	Mix_PlayMusic(session.GetAudioObject(), loops);
+	try {
+		AudioTrack<Mix_Music*> session = m_MusicTracks.at(id);
+		Mix_PlayMusic(session.GetAudioObject(), loops);
+	}
+	catch (std::out_of_range e) {
+		cout << "Could not find music " << id << "\n";
+	}
 	
-
 }
 
 void AudioManager::PlaySound(const char* id, int channel, int loops)
 {
 	if (soundToggle == 1) {
-		AudioTrack<Mix_Chunk*> session = m_Sounds[id];
-		Mix_PlayChannel(channel, session.GetAudioObject(), loops);
+
+		try {
+			AudioTrack<Mix_Chunk*> session = m_Sounds.at(id);
+			Mix_PlayChannel(channel, session.GetAudioObject(), loops);
+		}
+		catch (std::out_of_range e) {
+			cout << "Could not find sound " << id << "\n";
+		}
 	}
 
 }

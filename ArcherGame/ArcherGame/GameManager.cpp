@@ -9,9 +9,6 @@ GameManager* GameManager::Instance()
 
 void GameManager::Initialze()
 {
-    
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
-
-
 }
