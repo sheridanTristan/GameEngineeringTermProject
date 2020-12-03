@@ -13,7 +13,7 @@ private:
 
 public:
 	LevelSelector() {}
-	void Update(); // Method prototype.
+	void Update();
 	void Render();
 	void Enter();
 	void Exit();
