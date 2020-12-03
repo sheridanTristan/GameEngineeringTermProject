@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -91,6 +91,7 @@
       <AdditionalIncludeDirectories>../GELib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,6 +111,7 @@
       <AdditionalIncludeDirectories>../GELib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,7 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="HighScoreState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TestLevel.cpp" />
@@ -166,9 +171,23 @@
   <ItemGroup>
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TestLevel.h" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="PauseMenuState.cpp" />
+    <ClCompile Include="VictoryState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="HighScoreState.h" />
+    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="PauseMenuState.h" />
+    <ClInclude Include="VictoryState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="scores.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

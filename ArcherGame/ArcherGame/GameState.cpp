@@ -1,5 +1,6 @@
 #include "GameState.h"
 #include "GameEngine.h"
+#include "PauseMenuState.h"
 
 void GameState::Enter()
 {
@@ -19,8 +20,7 @@ void GameState::Enter()
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
 	enemy = new Enemy(archerSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
 
-	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
-	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
+	
 }
 
 
@@ -28,6 +28,12 @@ void GameState::Update()
 {
 	if (player) player->Update();
 	if (enemy) enemy->Update();
+	
+	if (GameEngine::Instance()->KeyDown(SDL_SCANCODE_ESCAPE) == 1)
+	{
+		GameEngine::Instance()->GetFSM()->PushState(new PauseMenuState());
+		return;
+	}
 }
 
 
@@ -52,7 +58,9 @@ void GameState::Render()
 
 void GameState::Exit()
 {
-
+	SDL_DestroyTexture(bgSpriteTex);
+	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
+	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
 
 }
 

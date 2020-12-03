@@ -9,6 +9,10 @@ class Player :public SpriteExAnimated
 private:
 	void UpdatePlayer();
 	bool m_bReleased = true;
+	int power;
+	SDL_Rect powerBarBorder = { 70,610,100,10 };
+	SDL_Rect powerBarFill = { 70,610,0,10 };
+	
 
 	Arrow* playerArrow;
 
