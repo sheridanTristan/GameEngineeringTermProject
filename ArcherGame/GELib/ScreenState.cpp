@@ -21,6 +21,7 @@ void ScreenState::RenderFont(bool isRefreshText, const char* text, int x, int y)
 		m_pFontTexture = SDL_CreateTextureFromSurface(GameEngine::Instance()->GetRenderer(), fontSurface);
 		m_rFontRect = { x,y,fontSurface->w,fontSurface->h };
 		SDL_FreeSurface(fontSurface); //De allocate to prevent mem leak
+		
 
 	}
 

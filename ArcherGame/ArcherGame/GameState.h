@@ -20,8 +20,8 @@ protected:
 
 public:
 	GameState() {}
-	void Update();
-	void Render();
+	virtual void Update();
+	virtual void Render();
 	virtual void Enter();
 	void Exit();
 	void Resume() { cout << "Resuming Game..." << endl; }

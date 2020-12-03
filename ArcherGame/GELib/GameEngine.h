@@ -5,6 +5,7 @@
 
 #include "SDL_mixer.h"  //required for audio
 
+#include "Score.h"
 #include <vector>
 
 #include "SDL_ttf.h"
@@ -26,7 +27,7 @@ private:
 
 	StateMachine* m_pFSM;
 	AudioManager* m_pAM; //pointer to the audio manager
-
+	vector<Score*> scores;
 	bool m_bLeftMouse = false; // Keeps track of left mouse button state.
 	int m_iMouseX, m_iMouseY;  // Variables to hold mouse positions.
 
@@ -42,6 +43,8 @@ public:
 	bool Init(const char* title, const int xPos,
 		const int yPos, const int width, const int height,
 		const int flags);
+
+	void AddScore(float no);
 
 	void QuitGame() { isAppRunning = false; }
 

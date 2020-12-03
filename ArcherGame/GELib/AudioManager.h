@@ -61,6 +61,7 @@ public:
 	//Toggle music:: so that you can pause and resume the current music track
 	void ToggleMusic();
 	void ToggleSound();
+	void LoadDefaultSounds();
 
 
 };
