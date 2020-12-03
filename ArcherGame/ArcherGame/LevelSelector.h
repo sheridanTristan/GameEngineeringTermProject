@@ -9,7 +9,7 @@ class LevelSelector : public ScreenState
 {
 private:
 	vector<Button*> m_vButtons;
-	enum btn { level1, level2, level3 };
+	enum btn { level1, level2, level3, level4 };
 
 public:
 	LevelSelector() {}
