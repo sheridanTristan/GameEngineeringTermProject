@@ -26,18 +26,22 @@ void LevelSelector::Update()
 	if (m_vButtons[btn::level1]->Clicked())
 	{
 
-		Game::Instance()->GetFSM()->ChangeState(new GameState());
+		GameEngine::Instance()->GetFSM()->ChangeState(new GameState());
 	}
 
 	else if (m_vButtons[btn::level2]->Clicked())
 	{
-		Game::Instance()->GetFSM()->ChangeState(new GameState());
+		GameEngine::Instance()->GetFSM()->ChangeState(new GameState());
 
 	}
 	else if (m_vButtons[btn::level3]->Clicked())
 	{
-		Game::Instance()->GetFSM()->ChangeState(new GameState());
+		GameEngine::Instance()->GetFSM()->ChangeState(new GameState());
 
+	}
+	else
+	{
+		GameEngine::Instance()->GetFSM()->ChangeState(new GameState());
 	}
 
 }
