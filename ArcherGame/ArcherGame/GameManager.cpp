@@ -14,6 +14,27 @@ void GameManager::Initialze()
     ReadScores("scores.txt");
 }
 
+void GameManager::StepTurn() {
+    if (player->GetTurn()) {
+        player->SetTurn(false);
+        
+        enemy->SetTurn(true);
+    }
+    else {
+        enemy->SetTurn(false);
+        
+        player->SetTurn(true);
+    }
+
+
+}
+
+void GameManager::SetupLevel(Player* player, Enemy* enemy) {
+    this->player = player;
+    this->enemy = enemy;
+}
+
+
 void GameManager::ReadScores(std::string textFile) {
     fstream file;
     file.open(textFile, ios::in);
@@ -46,3 +67,4 @@ void GameManager::ReadScores(std::string textFile) {
         m_Scores = scores;
     }
 }
+
