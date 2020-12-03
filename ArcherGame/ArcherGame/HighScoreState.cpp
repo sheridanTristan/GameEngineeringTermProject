@@ -1,5 +1,6 @@
 #include "MainMenuState.h"
 #include "HighScoreState.h"
+#include "GameManager.h"
 
 /* 
  * Implementation of virtual methods in HighScoreState.h
@@ -42,6 +43,13 @@ void HighScoreState::Render()
 	}
 	string paused = "High Scores";
 	RenderFont(true, paused.c_str(), 420, 74);
+	string scores;
+	for (int i = 0; i < GameManager::Instance()->GetScores().size(); i++)
+	{
+		scores += GameManager::Instance()->GetScores()[i] +"\n";
+	}
+	RenderFont(true, scores.c_str(), 90, 110);
+
 	ScreenState::Render();
 
 }
