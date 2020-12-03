@@ -2,7 +2,7 @@
 
 #include "GameEngine.h"
 #include <math.h>
-
+#include "GameManager.h"
 Player::Player(SDL_Texture* tex, double x, double y) :
 	SpriteExAnimated(tex, x - 50, y - 50, 0)
 {
@@ -37,7 +37,12 @@ void Player::Update() {
 }
 
 void Player::UpdatePlayer(){
-	GetMouseInput();
+	if (turn) {
+		GetMouseInput();
+		
+	}
+	this->UpdateArrow();
+	
 }
 
 void Player::GetMouseInput() {
@@ -72,6 +77,7 @@ void Player::GetMouseInput() {
 		m_iFrame = MOUSE_OVER;
 		SDL_Log("Mouse Button 1 (left) is released.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
+		GameManager::Instance()->StepTurn();
 		
 	}
 	else
@@ -90,7 +96,12 @@ void Player::GetMouseInput() {
 		power = launchVelocity / 10;
 		powerBarFill = { 70,610,power,10 };
 	}
-	this->UpdateArrow();
+	
+}
+
+
+void PlayerTurn() {
+
 }
 
 void Player::ShootArrow(float velocity,float angle) {

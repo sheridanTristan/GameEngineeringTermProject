@@ -7,6 +7,8 @@ class Enemy : public Player
 private:
 	Arrow* enemyArrow;
 	bool turn;
+	Uint32 m_turnTime;
+	int m_turnTimeout;
 
 public:
 	Enemy(SDL_Texture* tex, double x, double y);
@@ -20,6 +22,14 @@ public:
 
 	void UpdateEnemy();
 
-	void SetTurn(bool t) { turn = t; }
+	void SetTurn(bool t) { 
+		if (t) {
+			SetTurnTime(SDL_GetTicks());
+		}
+		
+		turn = t; 
+	
+	}
 	bool GetTurn() { return turn; }
+	void SetTurnTime(Uint32 t) { m_turnTime = t; }
 };

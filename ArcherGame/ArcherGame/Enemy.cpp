@@ -1,13 +1,16 @@
 #include "Enemy.h"
 #include "GameEngine.h"
+#include "GameManager.h"
 #include <stdlib.h> 
 
 Enemy::Enemy(SDL_Texture* tex, double x, double y) : Player(tex, x, y)
 {
-	turn = true;
+	turn = false;
+	m_turnTime = SDL_GetTicks();
 	flippedDimensions = std::make_pair(true, false);
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
+	m_turnTimeout = 1000;
 }
 
 Enemy::~Enemy()
@@ -31,24 +34,26 @@ void Enemy::Update()
 
 void Enemy::UpdateEnemy()
 {
-	if (turn && GameEngine::Instance()->KeyDown(SDL_SCANCODE_S)) {
-		GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
+	if (turn ) {
+		
+		if (SDL_TICKS_PASSED(SDL_GetTicks(), m_turnTime + m_turnTimeout)) {
+			GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
 
-		this->ShootArrow();
-		this->SetTurn(false);
-		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
+			this->ShootArrow();
 
+			GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
 
-	}
-	else if (GameEngine::Instance()->KeyUp(SDL_SCANCODE_S))
-	{
-		this->SetTurn(true);
+			GameManager::Instance()->StepTurn();
+		}
+		
 	}
 	this->UpdateArrow();
 }
 
 void Enemy::ShootArrow()
 {
+	float velocity = 0;
+	//determine random angle and velocity
 	float velocity = 0;
 	//determine random angle and velocity
 	float angle = rand() % (210 - 180 + 1) + 180;
