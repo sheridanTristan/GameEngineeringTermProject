@@ -32,6 +32,7 @@ void Button::Update()
 			
 			m_iFrame = MOUSE_DOWN;
 			m_bReleased = false;
+			GameEngine::Instance()->GetAudioManager()->PlaySound("bclick");
 		}
 		else if (!GameEngine::Instance()->GetLeftMouse())
 		{

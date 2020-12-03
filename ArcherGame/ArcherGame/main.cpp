@@ -5,14 +5,16 @@
 #include "MainMenuState.h"
 #include "GameOverState.h"
 #include "VictoryState.h"
+#include "GameManager.h"
 int main(int argc, char* argv[]) {
 
 	if (!GameEngine::Instance()->Init("ArcherGame", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, 1080, 720, 0))
 		return -1;
 
+	GameManager::Instance()->Initialze();
 	GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
-
+	
 	
 
 	while (GameEngine::Instance()->IsRunning()) {

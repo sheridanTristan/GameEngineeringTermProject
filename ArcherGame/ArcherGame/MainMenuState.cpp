@@ -15,7 +15,7 @@ void MainMenuState::Enter()
 {
 	cout << "Entering Main Menu State\n";
 	GameEngine::Instance()->SetLeftMouse(false);
-
+	
 	srand(time(NULL));
 	int img = rand() % 4 + 1;
 	string filePath = "Img/Stages/Stage" + to_string(img) + ".png";
@@ -35,6 +35,8 @@ void MainMenuState::Enter()
 	menuButtons.push_back(new Button("Img/Play.png", { 0,0,512,256 }, { 400,200,256,128 }));
 	menuButtons.push_back(new Button("Img/HiScore.png", { 0,0,512,256 }, { 400,335,256,128 }));
 	menuButtons.push_back(new Button("Img/Quit.png", { 0,0,512,256 }, { 400,470,256,128 }));
+	GameEngine::Instance()->GetAudioManager()->LoadMusic("audio/mainmenu.mp3",AudioScope::SESSION,"menumusic");
+	GameEngine::Instance()->GetAudioManager()->PlayMusic("menumusic");
 }
 
 // Update buttons located on the menu
@@ -49,7 +51,7 @@ void MainMenuState::Update()
 	// if play is clicked, prompt the user to enter name
 	if (menuButtons[btn::play]->Clicked())
 	{
-		GameEngine::Instance()->GetFSM()->PushState(new TestLevel());
+		GameEngine::Instance()->GetFSM()->ChangeState(new TestLevel());
 		return;
 	}
 	// if exit is clicked, game closes
@@ -84,12 +86,19 @@ void MainMenuState::Render()
 void MainMenuState::Exit()
 {
 	cout << "Exiting MainMenu...\n";
-
+	
 	for (int i = 0; i < (int)menuButtons.size(); i++)
 	{
 		delete menuButtons[i];
 		menuButtons[i] = nullptr;
 	}
+
 	menuButtons.clear();
 	menuButtons.shrink_to_fit();
+	GameEngine::Instance()->GetAudioManager()->ToggleMusic();
+	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
+	
+	SDL_DestroyTexture(bgSpriteTex);
+	delete bg;
+	
 }

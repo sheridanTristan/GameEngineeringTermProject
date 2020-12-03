@@ -17,7 +17,7 @@ protected:
 	SpriteEx* bg;
 
 	vector<Button*> menuButtons;
-	enum btn {play, highscore, exit};
+	enum btn { play, highscore, exit,mutemusic };
 
 public: 
 	MainMenuState() {}

@@ -58,5 +58,6 @@ void HighScoreState::Exit()
 	}
 	menuButtons.clear();
 	menuButtons.shrink_to_fit();
+	
 
 }

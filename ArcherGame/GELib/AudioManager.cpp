@@ -22,6 +22,7 @@ bool AudioManager::Init()
 		Mix_AllocateChannels(16);
 		soundToggle = 1;
 		musicToggle = 1;
+		LoadDefaultSounds();
 		return true;
 		
 	}
@@ -42,6 +43,7 @@ void AudioManager::PlayMusic(const char * id, int loops)
 {
 	AudioTrack<Mix_Music*> session = m_MusicTracks[id];
 	Mix_PlayMusic(session.GetAudioObject(), loops);
+	
 
 }
 
@@ -94,6 +96,12 @@ void AudioManager::ToggleMusic()
 void AudioManager::ToggleSound()
 {
 	soundToggle = soundToggle ^ 1;
+
+}
+
+void AudioManager::LoadDefaultSounds()
+{
+	LoadSound("Audio/buttonclick.wav", AudioScope::GLOBAL, "bclick");
 
 }
 

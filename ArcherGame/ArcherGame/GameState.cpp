@@ -20,8 +20,7 @@ void GameState::Enter()
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
 	enemy = new Enemy(archerSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
 
-	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
-	GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
+	
 }
 
 
@@ -59,7 +58,9 @@ void GameState::Render()
 
 void GameState::Exit()
 {
-
+	SDL_DestroyTexture(bgSpriteTex);
+	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
+	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
 
 }
 
