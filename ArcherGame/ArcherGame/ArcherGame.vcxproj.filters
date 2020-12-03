@@ -37,8 +37,6 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Arrow.h">
 
     <ClInclude Include="Arrow.h"/>
     <ClInclude Include="Enemy.h"/>
