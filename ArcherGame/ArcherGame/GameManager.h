@@ -15,7 +15,6 @@ private:
 public:
 	static GameManager* Instance();
 	void Initialze();
-<<<<<<< HEAD
 	void ReadScores(std::string textFile);
 	std::vector<int> GetScores() { return m_Scores; }
 	void StepTurn();
