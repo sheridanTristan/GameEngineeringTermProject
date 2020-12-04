@@ -168,7 +168,6 @@
     <ClCompile Include="TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
 
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Enemy.h" />
