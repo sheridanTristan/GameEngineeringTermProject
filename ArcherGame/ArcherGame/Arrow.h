@@ -10,6 +10,9 @@ public:
 	double y = 0;
 	float launchVelocity = 0;
 
+	float prevX, prevY;
+	
+
 	unsigned int startTime;
 
 	float dx=0.0;
@@ -31,13 +34,16 @@ public:
 		dy = (float)sin((angle) * M_PI / 180);
 	}
 	void Update() {
+
+		prevX = m_X;
+		prevY = m_Y;
 		float newX = (launchVelocity * (SDL_GetTicks() - startTime)/1000.0);
-		angle=(float)(atan2(m_Y-y,m_X-x))*180/M_PI;
-		std::cout << newX<<std::endl;
-		std::cout << angle;
-		
-		m_X += (dx * (launchVelocity/50));
-		m_Y += (dy * (launchVelocity /50)) - (-g * (float)pow((SDL_GetTicks() - startTime) / 1000.0, 2) / 2);
+		m_X += (dx * (launchVelocity / 50));
+		m_Y += (dy * (launchVelocity / 50)) - (-g * (float)pow((SDL_GetTicks() - startTime) / 1000.0, 2) / 2);
+
+		angle=(float)(atan2(m_Y-prevY,m_X-prevX))*180/M_PI;
+		//std::cout << newX<<std::endl;
+		//std::cout << angle;
 		this->UpdateDestRect();
 	}
 };

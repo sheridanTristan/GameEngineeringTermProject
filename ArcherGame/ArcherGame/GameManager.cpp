@@ -39,7 +39,8 @@ void GameManager::ReadScores(std::string textFile) {
     fstream file;
     file.open(textFile, ios::in);
     if (!file) {
-        std::cout << "Could not open file " << textFile;
+        std::cout << "Could not open file " << textFile << "\n";
+        return;
     }
     else {
         char ch;
@@ -65,6 +66,10 @@ void GameManager::ReadScores(std::string textFile) {
 
         }
         m_Scores = scores;
+        scores.clear();
     }
 }
 
+bool GameManager::CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2) {
+    return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) < (r1 + r2));
+}

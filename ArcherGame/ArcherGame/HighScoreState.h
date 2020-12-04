@@ -18,6 +18,7 @@ protected:
 
 	vector<Button*> menuButtons;
 	enum btn { back };
+	int m_ScoreSeperation;
 
 public:
 	HighScoreState() {}

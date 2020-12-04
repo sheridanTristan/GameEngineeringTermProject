@@ -1,5 +1,6 @@
 #include "MainMenuState.h"
 #include "HighScoreState.h"
+#include "GameManager.h"
 
 /* 
  * Implementation of virtual methods in HighScoreState.h
@@ -14,7 +15,7 @@ void HighScoreState::Enter()
 	m_pFont = TTF_OpenFont("Font/CONSOLAB.TTF", 36);
 
 	menuButtons.push_back(new Button("Img/Back.png", { 0,0,512,256 }, { 400,620,256,78 }));
-
+	m_ScoreSeperation = 30;
 }
 
 void HighScoreState::Update()
@@ -42,6 +43,18 @@ void HighScoreState::Render()
 	}
 	string paused = "High Scores";
 	RenderFont(true, paused.c_str(), 420, 74);
+	string scoresString;
+	std::vector<int> scores = GameManager::Instance()->GetScores();
+
+	for (int i = 0; i < GameManager::Instance()->GetScores().size(); i++)
+	{
+		char str[16] = "";
+		sprintf_s(str,16, "%d. %d", i + 1, scores[i]);
+		scoresString.append(str);
+		RenderFont(true, str, 90, 110+(i*m_ScoreSeperation));
+	}
+	
+
 	ScreenState::Render();
 
 }
