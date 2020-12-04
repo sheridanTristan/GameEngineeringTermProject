@@ -167,11 +167,7 @@
     <ClCompile Include="TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
-    <ClInclude Include="Arrow.h" />
-    <ClInclude Include="Enemy.h" />
->>>>>>> parent of 7dd23a6... Revert "Pull from master"
+
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameManager.h" />
