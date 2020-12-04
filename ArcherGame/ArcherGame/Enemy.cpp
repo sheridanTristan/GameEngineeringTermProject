@@ -13,7 +13,7 @@ Enemy::Enemy(SDL_Texture* tex, double x, double y) : Player(tex, x, y)
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
 	m_turnTimeout = 1000;
 	SDL_Texture* appleTexture = GameEngine::Instance()->LoadTexture("Img/Apple.png");
-	
+	turn = true;
 	flippedDimensions = std::make_pair(true, false);
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };

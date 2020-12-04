@@ -45,7 +45,7 @@ void Player::UpdatePlayer() {
 	}
 	this->UpdateArrow();
 
-	//GetMouseInput();
+	GetMouseInput();
 }
 
 void Player::GetMouseInput() {

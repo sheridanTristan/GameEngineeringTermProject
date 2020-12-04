@@ -48,12 +48,8 @@ void GameState::Update()
 void GameState::CheckCollision() 
 {
 	//cout << "checkCollision called";
-	
-	//player->SetTurn(true);//remove this when needed used for testing if I dont remove this I am a scrub from Kamil Kania 
-	//Dear Kamil,
-	//You are a scrub
-	//Nathan
-	if (player->GetTurn() && player->playerArrow != nullptr) {
+	player->SetTurn(true);//remove this when needed used for testing if I dont remove this I am a scrub from Kamil Kania 
+	if (player->GetTurn()) {
 		//cout << player->playerArrow->GetX()<<endl;
 		//cout << enemy->apple->GetX() << endl;
 		if (CircleCollisionTest(player->playerArrow->GetX(), player->playerArrow->GetY(),
@@ -63,7 +59,7 @@ void GameState::CheckCollision()
 			cout << "Player has hit the enemies apple!!\n";
 		}
 	}
-	else if (enemy->GetTurn() && enemy->playerArrow != nullptr) {
+	else if (enemy->GetTurn()) {
 		if (CircleCollisionTest(enemy->playerArrow->GetX(), enemy->playerArrow->GetY(),
 			player->apple->GetX(), player->apple->GetY(),
 			enemy->playerArrow->GetRadius(), player->apple->GetRadius()))
