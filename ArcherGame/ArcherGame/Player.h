@@ -1,6 +1,7 @@
 #pragma once
 #include "SpriteEx.h"
 #include "Arrow.h"
+#include "Apple.h"
 
 using namespace std;
 
@@ -14,7 +15,6 @@ private:
 	SDL_Rect powerBarFill = { 70,610,0,10 };
 	
 
-	Arrow* playerArrow;
 
 	bool turn;
 	
@@ -24,6 +24,8 @@ private:
 	int pointX=0;
 	int pointY=0;
 public:
+	Arrow* playerArrow;
+	Apple* apple;
 	Player(SDL_Texture* tex, double x, double y);
 	~Player();
 	virtual void Update();

@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="HighScoreState.cpp" />
@@ -11,11 +12,12 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Apple.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arrow.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Arrow.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TestLevel.h" />
@@ -24,25 +26,9 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="VictoryState.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Apple.h" />
   </ItemGroup>
   <ItemGroup>
-
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestLevel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-
-    <ClInclude Include="Arrow.h"/>
-    <ClInclude Include="Enemy.h"/>
-      <Filter>Header Files</Filter>
-    <!--</ClInclude>-->
-
     <None Include="packages.config" />
   </ItemGroup>
 </Project>

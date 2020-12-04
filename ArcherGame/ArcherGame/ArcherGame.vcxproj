@@ -157,6 +157,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -167,9 +168,11 @@
     <ClCompile Include="TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
 
-    <ClInclude Include="Arrow.h" />
+    <ClInclude Include="Apple.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Arrow.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
