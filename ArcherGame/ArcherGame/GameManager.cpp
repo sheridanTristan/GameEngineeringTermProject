@@ -70,3 +70,6 @@ void GameManager::ReadScores(std::string textFile) {
     }
 }
 
+bool GameManager::CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2) {
+    return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) < (r1 + r2));
+}
