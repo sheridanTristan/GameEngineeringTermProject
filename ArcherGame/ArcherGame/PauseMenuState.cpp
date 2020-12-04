@@ -35,7 +35,6 @@ void PauseMenuState::Update()
 
 	else if (menuButtons[btn::exit]->Clicked())
 	{
-		GameEngine::Instance()->GetFSM()->PopState();
 		GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
 	}
 }
@@ -64,9 +63,6 @@ void PauseMenuState::Exit()
 		delete menuButtons[i];
 		menuButtons[i] = nullptr;
 	}
-	SDL_DestroyTexture(bgSpriteTex);
-	delete bg;
-
 	menuButtons.clear();
 	menuButtons.shrink_to_fit();
 }

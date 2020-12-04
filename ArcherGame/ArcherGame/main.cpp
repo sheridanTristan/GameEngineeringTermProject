@@ -13,7 +13,6 @@ int main(int argc, char* argv[]) {
 		return -1;
 
 	GameManager::Instance()->Initialze();
-	
 	GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
 	
 	
