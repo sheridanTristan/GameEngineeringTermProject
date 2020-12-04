@@ -4,6 +4,7 @@
 #include <stdlib.h> 
 
 Enemy::Enemy(SDL_Texture* tex, double x, double y) : Player(tex, x, y)
+
 {
 	turn = false;
 	m_turnTime = SDL_GetTicks();
