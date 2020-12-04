@@ -19,5 +19,7 @@ public:
 	std::vector<int> GetScores() { return m_Scores; }
 	void StepTurn();
 	void SetupLevel(Player* player, Enemy* enemy);
+	bool CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2);
+
 };
 
