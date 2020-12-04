@@ -23,6 +23,9 @@ private:
 	int my=0;
 	int pointX=0;
 	int pointY=0;
+	
+
+
 public:
 	Player(SDL_Texture* tex, double x, double y);
 	~Player();
@@ -34,4 +37,5 @@ public:
 
 	void SetTurn(bool t){ turn = t; }
 	bool GetTurn() { return turn; }
+	void PlayerTurn();
 };

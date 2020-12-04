@@ -1,7 +1,7 @@
 #include "GameState.h"
 #include "GameEngine.h"
 #include "PauseMenuState.h"
-
+#include "GameManager.h"
 void GameState::Enter()
 {
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
@@ -19,7 +19,7 @@ void GameState::Enter()
 
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
 	enemy = new Enemy(archerSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
-
+	GameManager::Instance()->SetupLevel(player, enemy);
 	
 }
 
@@ -59,8 +59,13 @@ void GameState::Render()
 void GameState::Exit()
 {
 	SDL_DestroyTexture(bgSpriteTex);
+	SDL_DestroyTexture(archerSpriteTex);
+	delete bg;
+	delete player;
+	delete enemy;
 	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
 	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
+	
 
 }
 
