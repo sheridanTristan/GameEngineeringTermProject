@@ -21,6 +21,14 @@ SpriteExAnimated::SpriteExAnimated(SDL_Texture* tex, double x, double y,
     m_Y = y;
     angle = a;
 }
+bool SpriteExAnimated::CheckOutOfBounds()
+{
+    SDL_Surface* surface = SDL_GetWindowSurface(GameEngine::Instance()->GetWindow());
+
+    return (spriteDestRect.x > surface->w || spriteDestRect.x < 0) || (spriteDestRect.y > surface->h || spriteDestRect.y < 0);
+        
+    
+}
 void SpriteExAnimated::Animate()
 {
     m_iFrame++;
@@ -102,5 +110,7 @@ std::pair<int, int> SpriteEx::MoveTowards(int x, int y, float speed)
     m_Y += targetNormal.second * speed;
     return targetNormal;
 }
+
+
 
 

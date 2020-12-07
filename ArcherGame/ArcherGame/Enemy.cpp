@@ -6,14 +6,14 @@
 Enemy::Enemy(SDL_Texture* tex, double x, double y) : Player(tex, x, y)
 
 {
-	turn = false;
+	SetTurn(true);
 	m_turnTime = SDL_GetTicks();
 	flippedDimensions = std::make_pair(true, false);
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
 	m_turnTimeout = 1000;
 	SDL_Texture* appleTexture = GameEngine::Instance()->LoadTexture("Img/Apple.png");
-	turn = true;
+	//turn = true;
 	flippedDimensions = std::make_pair(true, false);
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
@@ -43,14 +43,14 @@ void Enemy::UpdateEnemy()
 {
 	if (turn ) {
 		
-		if (SDL_TICKS_PASSED(SDL_GetTicks(), m_turnTime + m_turnTimeout)) {
+		if (SDL_TICKS_PASSED(SDL_GetTicks(), m_turnTime + m_turnTimeout) && enemyArrow == nullptr) {
 			GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
 
 			this->ShootArrow();
 
 			GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
 
-			GameManager::Instance()->StepTurn();
+			
 		}
 		
 	}
@@ -95,5 +95,10 @@ void Enemy::UpdateArrow() {
 	if (enemyArrow)
 	{
 		enemyArrow->Update();
+		if (enemyArrow->CheckOutOfBounds() && turn) {
+			GameManager::Instance()->StepTurn();
+			delete enemyArrow;
+			enemyArrow = nullptr;
+		}
 	}
 }

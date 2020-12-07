@@ -7,7 +7,7 @@ Player::Player(SDL_Texture* tex, double x, double y) :
 	SpriteExAnimated(tex, x - 50, y - 50, 0)
 {
 	SDL_Texture* appleTexture = GameEngine::Instance()->LoadTexture("Img/Apple.png");
-	turn = true;
+	turn = false;
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
 	apple = new Apple(appleTexture, m_X-20, m_Y-60);
@@ -40,12 +40,13 @@ void Player::Update() {
 
 void Player::UpdatePlayer() {
 	if (turn) {
+		
 		GetMouseInput();
 
 	}
 	this->UpdateArrow();
 
-	GetMouseInput();
+	
 }
 
 void Player::GetMouseInput() {
@@ -85,7 +86,7 @@ void Player::GetMouseInput() {
 		m_iFrame = MOUSE_OVER;
 	//	SDL_Log("Mouse Button 1 (left) is released.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
-		GameManager::Instance()->StepTurn();
+		
 
 	}
 	else
@@ -123,5 +124,12 @@ void Player::ShootArrow(float velocity, float angle) {
 void Player::UpdateArrow() {
 	if (playerArrow) {
 		playerArrow->Update();
+		
+		
+		if (playerArrow->CheckOutOfBounds() && turn) {
+			GameManager::Instance()->StepTurn();
+			delete playerArrow;
+			playerArrow = nullptr;
+		}
 	}
 }

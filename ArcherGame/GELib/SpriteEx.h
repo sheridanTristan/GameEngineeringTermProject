@@ -99,5 +99,7 @@ public:
 
     }
 
+    bool CheckOutOfBounds();
+
 };
 
