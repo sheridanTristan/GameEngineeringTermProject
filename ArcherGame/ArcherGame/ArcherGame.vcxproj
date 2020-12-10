@@ -165,17 +165,18 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="HighScoreState.cpp" />
+    <ClCompile Include="LevelSelector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
-
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="LevelSelector.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TestLevel.h" />
     <ClCompile Include="MainMenuState.cpp" />

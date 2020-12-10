@@ -4,7 +4,7 @@
 #include "MainMenuState.h"
 #include "PauseMenuState.h"
 #include "HighScoreState.h"
-#include "TestLevel.h"
+#include "LevelSelector.h"
 /*	
  *	Implementation of virtual methods in ScreenState.h
  *	
@@ -51,7 +51,7 @@ void MainMenuState::Update()
 	// if play is clicked, prompt the user to enter name
 	if (menuButtons[btn::play]->Clicked())
 	{
-		GameEngine::Instance()->GetFSM()->ChangeState(new TestLevel());
+		GameEngine::Instance()->GetFSM()->ChangeState(new LevelSelector());
 		return;
 	}
 	// if exit is clicked, game closes

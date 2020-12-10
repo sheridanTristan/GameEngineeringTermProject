@@ -13,6 +13,7 @@
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
     <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="LevelSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="VictoryState.h" />
     <ClInclude Include="Apple.h" />
+    <ClInclude Include="LevelSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
