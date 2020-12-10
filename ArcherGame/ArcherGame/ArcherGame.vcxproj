@@ -164,7 +164,6 @@
     <ClCompile Include="GameLevel1.cpp" />
     <ClCompile Include="GameLevel2.cpp" />
     <ClCompile Include="GameLevel3.cpp" />
-    <ClCompile Include="GameLevel4.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameOverState.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="GameLevel1.h" />
     <ClInclude Include="GameLevel2.h" />
     <ClInclude Include="GameLevel3.h" />
-    <ClInclude Include="GameLevel4.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LevelSelector.h" />
