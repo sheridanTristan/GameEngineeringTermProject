@@ -16,7 +16,19 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
-    <ClCompile Include="GameLevel4.cpp" />
+    <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="GameLevel1.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLevel2.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLevel3.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLevel4.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
@@ -34,8 +46,19 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="VictoryState.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="GameLevel4.h" />
+    <ClInclude Include="Apple.h" />
+    <ClInclude Include="GameLevel1.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel2.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel3.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel4.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
