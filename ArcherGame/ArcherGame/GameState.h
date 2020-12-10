@@ -5,6 +5,7 @@
 #include "SpriteEx.h"
 #include <iostream>
 #include "Enemy.h"
+#include "Bird.h"
 using namespace std;
 
 class GameState : public ScreenState
@@ -14,12 +15,15 @@ protected:
 	SDL_Texture* archerSpriteTex;
 	SDL_Texture* enemySpriteTex;
 
+	SDL_Texture* birdSpriteTex;
+
 	SpriteEx* bg;
 
 	Player* player;
 	Enemy* enemy;
 	Uint32 gameOverTimeout;
 	Uint32 gameOverStart;
+	Bird* bird;
 
 public:
 	GameState() {}
