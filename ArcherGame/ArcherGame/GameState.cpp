@@ -2,6 +2,8 @@
 #include "GameEngine.h"
 #include "PauseMenuState.h"
 #include "GameManager.h"
+#include "VictoryState.h"
+#include "GameOverState.h"
 void GameState::Enter()
 {
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
@@ -60,7 +62,8 @@ void GameState::CheckCollision()
 			player->playerArrow->GetRadius(), enemy->apple->GetRadius())) 
 		{
 			cout << "Player has hit the enemies apple!!\n";
-			GameManager::Instance()->StepTurn();
+			GameManager::Instance()->AddScore(200);
+			GameEngine::Instance()->GetFSM()->ChangeState(new VictoryState);
 		}
 	}
 	if ( enemy->enemyArrow != nullptr) {
@@ -69,7 +72,8 @@ void GameState::CheckCollision()
 			enemy->enemyArrow->GetRadius(), player->apple->GetRadius()))
 		{
 			cout << "Enemy has hit the players apple!! Enemy Wins!\n";
-			GameManager::Instance()->StepTurn();
+
+			GameEngine::Instance()->GetFSM()->ChangeState(new GameOverState);
 		}
 	}
 

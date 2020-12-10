@@ -1,5 +1,6 @@
 #include "GameOverState.h"
 #include "MainMenuState.h"
+#include "GameManager.h"
 /*
  * Implementation of virtual methods in GameOverState.h
  * 
@@ -57,7 +58,7 @@ void GameOverState::Render()
 	{
 		button->Render();
 	}
-	string finalScore = "Final Score: "; // + to_string the score
+	string finalScore = "Final Score: "+GameManager::Instance()->GetLastScore(); // + to_string the score
 	RenderFont(true, finalScore.c_str(), 330, 240);
 	ScreenState::Render();
 }
