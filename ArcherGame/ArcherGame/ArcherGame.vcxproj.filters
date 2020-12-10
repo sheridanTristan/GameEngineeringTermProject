@@ -16,6 +16,12 @@
     <ClCompile Include="GameLevel1.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
+    <ClCompile Include="GameLevel2.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLevel3.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
     <ClCompile Include="LevelSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +38,12 @@
     <ClInclude Include="VictoryState.h" />
     <ClInclude Include="Apple.h" />
     <ClInclude Include="GameLevel1.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel2.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel3.h">
       <Filter>Levels</Filter>
     </ClInclude>
     <ClInclude Include="LevelSelector.h" />

@@ -5,12 +5,12 @@ class Enemy : public Player
 {
 
 private:
-	Arrow* enemyArrow;
 	bool turn;
 	Uint32 m_turnTime;
 	int m_turnTimeout;
 
 public:
+	Arrow* enemyArrow;
 	Enemy(SDL_Texture* tex, double x, double y);
 	~Enemy();
 	void Update() override;
