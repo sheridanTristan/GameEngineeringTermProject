@@ -160,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Apple.cpp" />
-    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameLevel1.cpp" />
     <ClCompile Include="GameLevel2.cpp" />
@@ -176,7 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
-    <ClInclude Include="Bird.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Arrow.h" />
     <ClInclude Include="GameLevel1.h" />
