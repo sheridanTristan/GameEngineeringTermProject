@@ -38,7 +38,7 @@ void VictoryState::Update()
 
 	if (menuButtons[btn::cont]->Clicked())
 	{
-		// move to the next stage
+		GameEngine::Instance()->GetFSM()->ChangeState(new MainMenuState());
 	}
 }
 
