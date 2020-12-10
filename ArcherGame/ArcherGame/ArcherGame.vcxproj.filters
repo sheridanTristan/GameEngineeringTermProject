@@ -13,6 +13,9 @@
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
     <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="GameLevel1.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
     <ClCompile Include="LevelSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +31,9 @@
     <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="VictoryState.h" />
     <ClInclude Include="Apple.h" />
+    <ClInclude Include="GameLevel1.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
     <ClInclude Include="LevelSelector.h" />
   </ItemGroup>
   <ItemGroup>
@@ -35,5 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="scores.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{cfc1fa89-5b65-460c-a31b-ad882b96c248}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
