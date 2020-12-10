@@ -27,11 +27,11 @@ void Player::Render() {
 	SDL_SetRenderDrawColor(GameEngine::Instance()->GetRenderer(), 255, 0, 0, 255);//making the power meter red
 
 
-	SDL_RenderFillRect(GameEngine::Instance()->GetRenderer(), &powerBarFill);//making the power meter red
+	SDL_RenderFillRect(GameEngine::Instance()->GetRenderer(), &powerBarFill);
 
 
 
-	SDL_RenderFillRect(GameEngine::Instance()->GetRenderer(), &powerBarFill);//making the power meter red
+	SDL_RenderFillRect(GameEngine::Instance()->GetRenderer(), &powerBarFill);
 }
 
 void Player::Update() {
