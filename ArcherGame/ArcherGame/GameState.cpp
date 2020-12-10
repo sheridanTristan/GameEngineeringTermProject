@@ -39,17 +39,19 @@ void GameState::Update()
 		GameEngine::Instance()->GetFSM()->PushState(new PauseMenuState());
 		return;
 	}
-	if (player->apple && enemy->apple&&(enemy->playerArrow||player->playerArrow)) {
-		CheckCollision();
+	if (player->apple && enemy->apple) {
+			//cout << "call collision";
+			CheckCollision();
 	}
 
 
 }
 void GameState::CheckCollision() 
 {
+	//cout<<enemy->GetTurn();
 	//cout << "checkCollision called";
 	//player->SetTurn(true);//remove this when needed used for testing if I dont remove this I am a scrub from Kamil Kania 
-	if (player->GetTurn() && player->playerArrow != nullptr) {
+	if (player->playerArrow != nullptr) {
 		//cout << player->playerArrow->GetX()<<endl;
 		//cout << enemy->apple->GetX() << endl;
 		if (CircleCollisionTest(player->playerArrow->GetX(), player->playerArrow->GetY(),
@@ -60,10 +62,10 @@ void GameState::CheckCollision()
 			GameManager::Instance()->StepTurn();
 		}
 	}
-	else if (enemy->GetTurn() && enemy->playerArrow != nullptr) {
-		if (CircleCollisionTest(enemy->playerArrow->GetX(), enemy->playerArrow->GetY(),
-			player->apple->GetX(), player->apple->GetY(),
-			enemy->playerArrow->GetRadius(), player->apple->GetRadius()))
+	if ( enemy->enemyArrow != nullptr) {
+		if (CircleCollisionTest(enemy->enemyArrow->GetX(), enemy->enemyArrow->GetY(),
+			player->apple->GetX(), player->apple->GetY()+10,
+			enemy->enemyArrow->GetRadius(), player->apple->GetRadius()))
 		{
 			cout << "Enemy has hit the players apple!! Enemy Wins!\n";
 			GameManager::Instance()->StepTurn();
