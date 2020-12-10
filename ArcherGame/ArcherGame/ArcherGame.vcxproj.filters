@@ -22,6 +22,9 @@
     <ClCompile Include="GameLevel3.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
+    <ClCompile Include="GameLevel4.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
@@ -43,6 +46,9 @@
       <Filter>Levels</Filter>
     </ClInclude>
     <ClInclude Include="GameLevel3.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel4.h">
       <Filter>Levels</Filter>
     </ClInclude>
   </ItemGroup>
