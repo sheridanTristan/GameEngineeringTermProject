@@ -4,7 +4,9 @@
 #include <fstream>
 #include "Player.h"
 #include "Enemy.h"
+#include "Bird.h"
 #include <algorithm>
+
 #define NUM_SCORES 10
 class GameManager
 {
@@ -13,6 +15,7 @@ private:
 	int m_currentScore;
 	Enemy* enemy;
 	Player* player;
+	Bird* bird;
 
 public:
 	bool gameOver = false;
@@ -22,7 +25,7 @@ public:
 	void ReadScores(std::string textFile);
 	std::vector<int> GetScores() { return m_Scores; }
 	void StepTurn();
-	void SetupLevel(Player* player, Enemy* enemy);
+	void SetupLevel(Player* player, Enemy* enemy, Bird* bird);
 	bool CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2);
 	int GetLastScore();
 	void AddScore(int score);

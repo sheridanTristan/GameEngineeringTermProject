@@ -11,6 +11,7 @@ void GameState::Enter()
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
 	archerSpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer.png");
 	enemySpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer_1.png");
+	birdSpriteTex = GameEngine::Instance()->LoadTexture("Img/Bird.png");
 
 	SDL_Rect bgSrcRect;
 	bgSrcRect.x = bgSrcRect.y = 0;
@@ -24,7 +25,8 @@ void GameState::Enter()
 
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
 	enemy = new Enemy(enemySpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
-	GameManager::Instance()->SetupLevel(player, enemy);
+	bird = new Bird(birdSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 1000);
+	GameManager::Instance()->SetupLevel(player, enemy, bird);
 	
 }
 
@@ -37,6 +39,9 @@ void GameState::Update()
 
 	if (enemy) {
 		enemy->Update(); 
+	}
+	if (bird) {
+		bird->Update();
 	}
 	
 	if (GameEngine::Instance()->KeyDown(SDL_SCANCODE_ESCAPE) == 1)
@@ -108,6 +113,9 @@ void GameState::Render()
 		enemy->Render();
 		enemy->apple->Render();
 	}
+	if (bird) {
+		bird->Render();
+	}
 
 	ScreenState::Render();
 }
@@ -120,6 +128,7 @@ void GameState::Exit()
 	delete bg;
 	delete player;
 	delete enemy;
+	delete bird;
 	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
 	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
 	

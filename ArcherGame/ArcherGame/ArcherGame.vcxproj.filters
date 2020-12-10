@@ -26,9 +26,8 @@
     <ClCompile Include="GameLevel3.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="GameLevel4.cpp">
-      <Filter>Levels</Filter>
-    </ClCompile>
+    <ClCompile Include="GameLevel4.cpp" />
+    <ClCompile Include="Bird.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
@@ -56,9 +55,9 @@
     <ClInclude Include="GameLevel3.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="GameLevel4.h">
-      <Filter>Levels</Filter>
-    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="GameLevel4.h" />
+    <ClInclude Include="Bird.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

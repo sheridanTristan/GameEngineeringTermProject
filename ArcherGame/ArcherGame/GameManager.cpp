@@ -33,9 +33,10 @@ void GameManager::StepTurn() {
 
 }
 
-void GameManager::SetupLevel(Player* player, Enemy* enemy) {
+void GameManager::SetupLevel(Player* player, Enemy* enemy, Bird* bird) {
     this->player = player;
     this->enemy = enemy;
+    this->bird = bird;
 }
 
 
