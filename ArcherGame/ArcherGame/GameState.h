@@ -12,6 +12,7 @@ class GameState : public ScreenState
 protected:
 	SDL_Texture* bgSpriteTex; //load and store background sprite tex
 	SDL_Texture* archerSpriteTex;
+	SDL_Texture* enemySpriteTex;
 
 	SpriteEx* bg;
 

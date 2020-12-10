@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameLevel1.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameOverState.cpp" />
@@ -170,10 +171,10 @@
     <ClCompile Include="TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
-
     <ClInclude Include="Apple.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Arrow.h" />
+    <ClInclude Include="GameLevel1.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
