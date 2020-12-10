@@ -58,7 +58,7 @@ void GameOverState::Render()
 	{
 		button->Render();
 	}
-	string finalScore = "Final Score: "+GameManager::Instance()->GetLastScore(); // + to_string the score
+	string finalScore = "Final Score: 0"; // + to_string the score
 	RenderFont(true, finalScore.c_str(), 330, 240);
 	ScreenState::Render();
 }

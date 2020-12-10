@@ -13,6 +13,8 @@ private:
 	Player* player;
 
 public:
+	bool gameOver = false;
+	bool win = false;
 	static GameManager* Instance();
 	void Initialze();
 	void ReadScores(std::string textFile);

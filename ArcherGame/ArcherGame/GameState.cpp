@@ -6,6 +6,8 @@
 #include "GameOverState.h"
 void GameState::Enter()
 {
+	GameManager::Instance()->win = false;
+	GameManager::Instance()->gameOver = false;
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
 	archerSpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer.png");
 	enemySpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer_1.png");
@@ -46,7 +48,14 @@ void GameState::Update()
 			//cout << "call collision";
 			CheckCollision();
 	}
-
+	if (GameManager::Instance()->gameOver && GameManager::Instance()->win)
+	{
+		GameEngine::Instance()->GetFSM()->ChangeState(new VictoryState);
+	}
+	else if (GameManager::Instance()->gameOver && !GameManager::Instance()->win)
+	{
+		GameEngine::Instance()->GetFSM()->ChangeState(new GameOverState);
+	}
 
 }
 void GameState::CheckCollision() 
@@ -63,17 +72,19 @@ void GameState::CheckCollision()
 		{
 			cout << "Player has hit the enemies apple!!\n";
 			GameManager::Instance()->AddScore(200);
-			GameEngine::Instance()->GetFSM()->ChangeState(new VictoryState);
+			GameManager::Instance()->gameOver = true;
+			GameManager::Instance()->win = true;
 		}
 	}
-	if ( enemy->enemyArrow != nullptr) {
+	if ( enemy->enemyArrow) {
 		if (CircleCollisionTest(enemy->enemyArrow->GetX(), enemy->enemyArrow->GetY(),
 			player->apple->GetX(), player->apple->GetY()+10,
 			enemy->enemyArrow->GetRadius(), player->apple->GetRadius()))
 		{
 			cout << "Enemy has hit the players apple!! Enemy Wins!\n";
 
-			GameEngine::Instance()->GetFSM()->ChangeState(new GameOverState);
+			GameManager::Instance()->gameOver = true;
+			GameManager::Instance()->win = false;
 		}
 	}
 

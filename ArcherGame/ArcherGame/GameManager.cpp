@@ -80,7 +80,7 @@ bool GameManager::CircleCollisionTest(double x1, double y1, double x2, double y2
 
 int GameManager::GetLastScore()
 {
-    return m_Scores[m_Scores.size() -1];
+    return m_Scores[m_Scores.size()-1];
 }
 
 void GameManager::AddScore(int score)
