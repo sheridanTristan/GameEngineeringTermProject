@@ -39,7 +39,7 @@ void Player::Update() {
 }
 
 void Player::UpdatePlayer() {
-	if (turn) {
+	if (turn && playerArrow == nullptr) {
 		
 		GetMouseInput();
 
@@ -86,7 +86,7 @@ void Player::GetMouseInput() {
 		m_iFrame = MOUSE_OVER;
 	//	SDL_Log("Mouse Button 1 (left) is released.");
 		GameEngine::Instance()->GetAudioManager()->PlaySound("Bow release");
-		
+		powerBarFill = { 70,610,0,10 };
 
 	}
 	else
