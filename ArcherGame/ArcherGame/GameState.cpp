@@ -27,7 +27,7 @@ void GameState::Enter()
 	bg = new SpriteEx(bgSpriteTex, bgSrcRect, bgDestRect);
 
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
-	enemy = new Enemy(archerSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
+	enemy = new Enemy(enemySpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
 
 	bird = new Bird(birdSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 1000);
 	GameManager::Instance()->SetupLevel(player, enemy, bird);

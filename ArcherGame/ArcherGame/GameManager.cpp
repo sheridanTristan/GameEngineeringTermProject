@@ -60,7 +60,7 @@ void GameManager::ReadScores(std::string textFile) {
                 try {
                     int iScore = std::stoi(score);
                     scores.push_back(iScore);
-                    std::cout << iScore << "\n";
+                    
                     score.clear();
                 }
                 catch (std::invalid_argument e) {
