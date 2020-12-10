@@ -157,6 +157,8 @@ void GameState::Exit()
 {
 	SDL_DestroyTexture(bgSpriteTex);
 	SDL_DestroyTexture(archerSpriteTex);
+	SDL_DestroyTexture(enemySpriteTex);
+	SDL_DestroyTexture(birdSpriteTex);
 	delete bg;
 	delete player;
 	delete enemy;

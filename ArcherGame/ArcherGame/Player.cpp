@@ -15,7 +15,10 @@ Player::Player(SDL_Texture* tex, double x, double y) :
 }
 
 Player::~Player() {
+	delete apple;
+	delete playerArrow;
 
+	SDL_DestroyTexture(texture);
 }
 
 void Player::Render() {

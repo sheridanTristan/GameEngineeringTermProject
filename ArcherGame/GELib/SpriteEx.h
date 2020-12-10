@@ -41,6 +41,10 @@ public:
     double GetRadius() { return m_dRadius; }
     double GetX() { return m_X; }
     double GetY() { return m_Y; }
+    ~SpriteEx() {
+        //SDL_DestroyTexture(texture);
+
+    }
 };
 
 struct AnimStateDefinition

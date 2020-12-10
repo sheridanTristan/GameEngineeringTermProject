@@ -33,6 +33,9 @@ public:
 		dx = (float)cos((angle) * M_PI / 180);
 		dy = (float)sin((angle) * M_PI / 180);
 	}
+	~Arrow() {
+		//SDL_DestroyTexture(texture);
+	}
 	void Update() {
 
 		prevX = m_X;

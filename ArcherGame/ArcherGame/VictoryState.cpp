@@ -72,4 +72,6 @@ void VictoryState::Exit()
 	}
 	menuButtons.clear();
 	menuButtons.shrink_to_fit();
+	delete bg;
+	SDL_DestroyTexture(bgSpriteTex);
 }
