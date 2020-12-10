@@ -12,7 +12,8 @@ void GameManager::Initialze()
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
     ReadScores("scores.txt");
-
+   
+    WriteScores("scores.txt");
     
 
 }
@@ -81,19 +82,23 @@ bool GameManager::CircleCollisionTest(double x1, double y1, double x2, double y2
 void GameManager::AddScore(int score)
 {
     m_Scores.push_back(score);
+    
+    
 }
 
 void GameManager::WriteScores(std::string textFile)
 {
+    sort(m_Scores.begin(), m_Scores.end(), greater<int>());
     fstream file;
     file.open(textFile, ios::out);
     if (file.is_open()) 
     {
-        for (int i = 0; i < m_Scores.size();i++) 
+        
+        for (int i = 0; i < NUM_SCORES;i++) 
         {
             int score = m_Scores[i];
             file << score;
-            if (i < m_Scores.size() - 1) {
+            if (i < NUM_SCORES - 1) {
                 file << ";";
             }
         }
