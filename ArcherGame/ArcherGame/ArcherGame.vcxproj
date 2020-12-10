@@ -171,7 +171,7 @@
     <ClCompile Include="LevelSelector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="TestLevel.cpp" />
+    <ClCompile Include="GameLevel4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
@@ -184,7 +184,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LevelSelector.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="TestLevel.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="GameLevel4.h" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
@@ -198,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="scores.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Img\Level1.png" />
+    <Image Include="Img\Level2.png" />
+    <Image Include="Img\Level3.png" />
+    <Image Include="Img\Level4.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
