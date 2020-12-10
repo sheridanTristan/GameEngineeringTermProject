@@ -6,6 +6,9 @@
 #include "GameOverState.h"
 void GameState::Enter()
 {
+	m_pFont = TTF_OpenFont("Font/CONSOLAB.TTF", 36);
+	gameOverTimeout = 2000;
+	gameOverStart = SDL_GetTicks();
 	GameManager::Instance()->win = false;
 	GameManager::Instance()->gameOver = false;
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
@@ -44,18 +47,23 @@ void GameState::Update()
 		GameEngine::Instance()->GetFSM()->PushState(new PauseMenuState());
 		return;
 	}
-	if (player->apple && enemy->apple) {
-			//cout << "call collision";
+	if ((player->apple && enemy->apple) && !GameManager::Instance()->gameOver) {
+		
 			CheckCollision();
 	}
-	if (GameManager::Instance()->gameOver && GameManager::Instance()->win)
-	{
-		GameEngine::Instance()->GetFSM()->ChangeState(new VictoryState);
+	if (GameManager::Instance()->gameOver && SDL_TICKS_PASSED(SDL_GetTicks(),gameOverStart + gameOverTimeout)) {
+		if (GameManager::Instance()->gameOver && GameManager::Instance()->win)
+		{
+			GameEngine::Instance()->GetFSM()->ChangeState(new VictoryState);
+		}
+		else if (GameManager::Instance()->gameOver && !GameManager::Instance()->win)
+		{
+			GameEngine::Instance()->GetFSM()->ChangeState(new GameOverState);
+		}
 	}
-	else if (GameManager::Instance()->gameOver && !GameManager::Instance()->win)
-	{
-		GameEngine::Instance()->GetFSM()->ChangeState(new GameOverState);
-	}
+	
+
+
 
 }
 void GameState::CheckCollision() 
@@ -71,9 +79,9 @@ void GameState::CheckCollision()
 			player->playerArrow->GetRadius(), enemy->apple->GetRadius())) 
 		{
 			cout << "Player has hit the enemies apple!!\n";
-			GameManager::Instance()->AddScore(200);
-			GameManager::Instance()->gameOver = true;
-			GameManager::Instance()->win = true;
+			GameManager::Instance()->EndGame(true,200);
+			gameOverStart = SDL_GetTicks();
+
 		}
 	}
 	if ( enemy->enemyArrow) {
@@ -82,9 +90,9 @@ void GameState::CheckCollision()
 			enemy->enemyArrow->GetRadius(), player->apple->GetRadius()))
 		{
 			cout << "Enemy has hit the players apple!! Enemy Wins!\n";
-
-			GameManager::Instance()->gameOver = true;
-			GameManager::Instance()->win = false;
+			
+			GameManager::Instance()->EndGame(false);
+			gameOverStart = SDL_GetTicks();
 		}
 	}
 
@@ -107,6 +115,23 @@ void GameState::Render()
 	if (enemy) {
 		enemy->Render();
 		enemy->apple->Render();
+	}
+
+	if (GameManager::Instance()->gameOver) {
+		char gameWinner[32];
+		std::string gameOverText = "Game Over!";
+		if (GameManager::Instance()->win) {
+			sprintf_s(gameWinner, 32, "Player wins!");
+		}
+		else {
+			sprintf_s(gameWinner, 32, "You lose!");
+		}
+		const SDL_Surface surface = *SDL_GetWindowSurface(GameEngine::Instance()->GetWindow());
+
+		RenderFont(true, gameOverText.c_str(), (surface.w / 2) -  50, 200);
+		RenderFont(true, gameWinner, (surface.w / 2) - 50, 240);
+
+
 	}
 
 	ScreenState::Render();

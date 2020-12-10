@@ -18,6 +18,8 @@ protected:
 
 	Player* player;
 	Enemy* enemy;
+	Uint32 gameOverTimeout;
+	Uint32 gameOverStart;
 
 public:
 	GameState() {}
@@ -26,6 +28,7 @@ public:
 	virtual void Enter();
 	void Exit();
 	void Resume() { cout << "Resuming Game..." << endl; }
+	
 	bool CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2)
 	{
 		return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) < (r1 + r2));

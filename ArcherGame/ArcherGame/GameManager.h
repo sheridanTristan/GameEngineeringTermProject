@@ -14,6 +14,7 @@ private:
 	Enemy* enemy;
 	Player* player;
 
+
 public:
 	bool gameOver = false;
 	bool win = false;
@@ -27,5 +28,9 @@ public:
 	int GetLastScore();
 	void AddScore(int score);
 	void WriteScores(std::string textFile);
+	int GetCurrentScore() { return m_currentScore; }
+
+	void EndGame(bool playerWin, int  = 0);
+	void UpdateScores();
 };
 
