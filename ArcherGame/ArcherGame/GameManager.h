@@ -4,12 +4,12 @@
 #include <fstream>
 #include "Player.h"
 #include "Enemy.h"
-<<<<<<< Updated upstream
+
 #include <algorithm>
 #define NUM_SCORES 10
-=======
+
 #include "Bird.h"
->>>>>>> Stashed changes
+
 class GameManager
 {
 private:
