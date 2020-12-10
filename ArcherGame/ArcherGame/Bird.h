@@ -13,7 +13,7 @@ public:
 	//float position = 0;
 
 	double x = 0;
-	double y =0;
+	double y = 0;
 
 	unsigned int startTime;
 
@@ -25,6 +25,6 @@ public:
 	virtual void Render();
 	virtual void Update();
 	void MoveBirdLeft();
-	
+
 
 };

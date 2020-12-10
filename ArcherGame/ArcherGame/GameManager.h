@@ -4,8 +4,8 @@
 #include <fstream>
 #include "Player.h"
 #include "Enemy.h"
-
 #include <algorithm>
+
 #define NUM_SCORES 10
 
 #include "Bird.h"

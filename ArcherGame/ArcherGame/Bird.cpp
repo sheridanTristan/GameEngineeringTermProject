@@ -3,7 +3,7 @@
 #include "GameManager.h"
 
 
-Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100, y + 73 , 3)
+Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100, y + 73, 3)
 {
 	m_DX = 2.5;
 	m_Y = 80;
@@ -16,7 +16,7 @@ Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100
 
 	m_dRadius = 5;
 
-	AddAnimState("Bird", AnimStateDefinition(0, 3, 200,true,false));
+	AddAnimState("Bird", AnimStateDefinition(0, 3, 200, true, false));
 	cout << "Bird Created\n";
 }
 
@@ -27,8 +27,8 @@ Bird::~Bird() {
 void Bird::Render() {
 
 	this->SpriteExAnimated::Render();
-	
-	
+
+
 }
 
 void Bird::Update()
@@ -48,9 +48,9 @@ void Bird::MoveBirdLeft()
 	{
 		m_X = 1300;
 	}
-	
-	
-	
+
+
+
 
 }
 
@@ -58,10 +58,9 @@ void Bird::MoveBirdLeft()
 void Bird::UpdateBird()
 {
 
-	
+
 	MoveBirdLeft();
 
-	
-}
 
+}
 

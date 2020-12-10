@@ -17,7 +17,6 @@
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
     <ClCompile Include="Apple.cpp" />
-<<<<<<< Updated upstream
     <ClCompile Include="GameLevel1.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
@@ -27,12 +26,8 @@
     <ClCompile Include="GameLevel3.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="GameLevel4.cpp">
-      <Filter>Levels</Filter>
-    </ClCompile>
-=======
+    <ClCompile Include="GameLevel4.cpp" />
     <ClCompile Include="Bird.cpp" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
@@ -51,7 +46,6 @@
     <ClInclude Include="PauseMenuState.h" />
     <ClInclude Include="VictoryState.h" />
     <ClInclude Include="Apple.h" />
-<<<<<<< Updated upstream
     <ClInclude Include="GameLevel1.h">
       <Filter>Levels</Filter>
     </ClInclude>
@@ -61,12 +55,9 @@
     <ClInclude Include="GameLevel3.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="GameLevel4.h">
-      <Filter>Levels</Filter>
-    </ClInclude>
-=======
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="GameLevel4.h" />
     <ClInclude Include="Bird.h" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

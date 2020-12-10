@@ -14,10 +14,7 @@ void GameState::Enter()
 	//	bgSpriteTex = Game::Instance()->LoadTexture("background.png");
 	archerSpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer.png");
 	enemySpriteTex = GameEngine::Instance()->LoadTexture("Img/Archer_1.png");
-
-	//adding sprite for the bird 
 	birdSpriteTex = GameEngine::Instance()->LoadTexture("Img/Bird.png");
-
 
 	SDL_Rect bgSrcRect;
 	bgSrcRect.x = bgSrcRect.y = 0;
@@ -48,7 +45,6 @@ void GameState::Update()
 	if (enemy) {
 		enemy->Update(); 
 	}
-
 	if (bird) {
 		bird->Update();
 	}
