@@ -11,9 +11,9 @@ void GameManager::Initialze()
 {
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
+    GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/applehit.wav",AudioScope::GLOBAL,"Apple hit");
     ReadScores("scores.txt");
    
-    WriteScores("scores.txt");
     
 
 }
@@ -99,17 +99,38 @@ void GameManager::WriteScores(std::string textFile)
     file.open(textFile, ios::out);
     if (file.is_open()) 
     {
-        
-        for (int i = 0; i < NUM_SCORES;i++) 
+        int scoresToPrint = (m_Scores.size() < NUM_SCORES) ? m_Scores.size() : NUM_SCORES;
+        for (int i = 0; i < scoresToPrint;i++) 
         {
             int score = m_Scores[i];
             file << score;
-            if (i < NUM_SCORES - 1) {
+            if (i < scoresToPrint - 1) {
                 file << ";";
             }
         }
         file.close();
     }
 
+
+}
+
+void GameManager::EndGame(bool playerWin,int playerScore)
+{
+    GameEngine::Instance()->GetAudioManager()->PlaySound("Apple hit");
+   
+    if (playerWin) {
+        GameManager::Instance()->AddScore(200);
+        m_currentScore = playerScore;
+    }
+    
+    GameManager::Instance()->gameOver = true;
+    GameManager::Instance()->win = playerWin;
+    UpdateScores();
+}
+
+void GameManager::UpdateScores()
+{
+    GameManager::WriteScores("scores.txt");
+    GameManager::ReadScores("scores.txt");
 
 }

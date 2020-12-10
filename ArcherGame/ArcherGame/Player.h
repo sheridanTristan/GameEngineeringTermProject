@@ -14,8 +14,6 @@ private:
 	SDL_Rect powerBarBorder = { 70,610,100,10 };
 	SDL_Rect powerBarFill = { 70,610,0,10 };
 	
-
-
 	bool turn;
 	
 	enum state { MOUSE_UP, MOUSE_OVER, MOUSE_DOWN };
@@ -23,6 +21,7 @@ private:
 	int my=0;
 	int pointX=0;
 	int pointY=0;
+	
 	
 
 
@@ -39,5 +38,5 @@ public:
 
 	void SetTurn(bool t){ turn = t; }
 	bool GetTurn() { return turn; }
-	void PlayerTurn();
+	void OnGameWin();
 };

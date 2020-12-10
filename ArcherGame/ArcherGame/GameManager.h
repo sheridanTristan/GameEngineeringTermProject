@@ -4,10 +4,12 @@
 #include <fstream>
 #include "Player.h"
 #include "Enemy.h"
-#include "Bird.h"
 #include <algorithm>
 
 #define NUM_SCORES 10
+
+#include "Bird.h"
+
 class GameManager
 {
 private:
@@ -16,6 +18,7 @@ private:
 	Enemy* enemy;
 	Player* player;
 	Bird* bird;
+
 
 public:
 	bool gameOver = false;
@@ -30,5 +33,9 @@ public:
 	int GetLastScore();
 	void AddScore(int score);
 	void WriteScores(std::string textFile);
+	int GetCurrentScore() { return m_currentScore; }
+
+	void EndGame(bool playerWin, int  = 0);
+	void UpdateScores();
 };
 

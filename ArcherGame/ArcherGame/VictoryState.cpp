@@ -54,7 +54,7 @@ void VictoryState::Render()
 	}
 	
 	string currentScore = "Current Score: ";// + to_string the score
-	sprintf_s(test, "%d", GameManager::Instance()->GetLastScore());
+	sprintf_s(test, "%d", GameManager::Instance()->GetCurrentScore());
 	currentScore.append(test);
 	RenderFont(true, currentScore.c_str(), 330, 240);
 
