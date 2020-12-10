@@ -3,7 +3,7 @@
 
 void GameLevel4::Enter()
 {
-    bgSpriteTex = GameEngine::Instance()->LoadTexture("Img/Stages/Stage2.png");
+    bgSpriteTex = GameEngine::Instance()->LoadTexture("Img/Stages/Stage4.png");
 
     GameState::Enter();
 
