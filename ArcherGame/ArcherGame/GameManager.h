@@ -15,6 +15,8 @@ private:
 	Player* player;
 
 public:
+	bool gameOver = false;
+	bool win = false;
 	static GameManager* Instance();
 	void Initialze();
 	void ReadScores(std::string textFile);
@@ -22,6 +24,7 @@ public:
 	void StepTurn();
 	void SetupLevel(Player* player, Enemy* enemy);
 	bool CircleCollisionTest(double x1, double y1, double x2, double y2, double r1, double r2);
+	int GetLastScore();
 	void AddScore(int score);
 	void WriteScores(std::string textFile);
 };

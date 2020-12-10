@@ -1,6 +1,7 @@
 #include "VictoryState.h"
+#include "GameManager.h"
 #include "MainMenuState.h"
-
+#include <stdio.h>
 /*
  * Implementation of virtual methods in VictoryState.h
  *
@@ -8,9 +9,9 @@
 
 void VictoryState::Enter()
 {
+
 	cout << "Entering VictoryState\n";
 	GameEngine::Instance()->SetLeftMouse(false);
-
 	bgSpriteTex = GameEngine::Instance()->LoadTexture("Img/Victory.png");
 
 	SDL_Rect bgSrcRect;
@@ -51,8 +52,10 @@ void VictoryState::Render()
 	{
 		button->Render();
 	}
-
-	string currentScore = "Current Score: "; // + to_string the score
+	
+	string currentScore = "Current Score: ";// + to_string the score
+	sprintf_s(test, "%d", GameManager::Instance()->GetLastScore());
+	currentScore.append(test);
 	RenderFont(true, currentScore.c_str(), 330, 240);
 
 	ScreenState::Render();

@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameLevel1.cpp" />
+    <ClCompile Include="GameLevel2.cpp" />
+    <ClCompile Include="GameLevel3.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="HighScoreState.cpp" />
+    <ClCompile Include="LevelSelector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="TestLevel.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
@@ -27,12 +31,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Apple.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Arrow.h" />
+    <ClInclude Include="GameLevel1.h" />
+    <ClInclude Include="GameLevel2.h" />
+    <ClInclude Include="GameLevel3.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="LevelSelector.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="TestLevel.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="HighScoreState.h" />
     <ClInclude Include="MainMenuState.h" />
@@ -59,8 +67,9 @@
     <Text Include="scores.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Levels">
-      <UniqueIdentifier>{cfc1fa89-5b65-460c-a31b-ad882b96c248}</UniqueIdentifier>
-    </Filter>
+    <Image Include="Img\Level1.png" />
+    <Image Include="Img\Level2.png" />
+    <Image Include="Img\Level3.png" />
+    <Image Include="Img\Level4.png" />
   </ItemGroup>
 </Project>

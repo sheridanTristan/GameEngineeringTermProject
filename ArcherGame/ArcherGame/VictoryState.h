@@ -15,7 +15,7 @@ class VictoryState : public ScreenState
 protected:
 	SDL_Texture* bgSpriteTex;
 	SpriteEx* bg;
-
+	char test[32];
 	vector<Button*> menuButtons;
 	enum btn { cont };
 

@@ -79,6 +79,11 @@ bool GameManager::CircleCollisionTest(double x1, double y1, double x2, double y2
     return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) < (r1 + r2));
 }
 
+int GameManager::GetLastScore()
+{
+    return m_Scores[m_Scores.size()-1];
+}
+
 void GameManager::AddScore(int score)
 {
     m_Scores.push_back(score);
