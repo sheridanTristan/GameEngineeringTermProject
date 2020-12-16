@@ -13,9 +13,6 @@ void GameManager::Initialze()
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/applehit.wav",AudioScope::GLOBAL,"Apple hit");
     ReadScores("scores.txt");
-   
-    
-
 }
 
 void GameManager::StepTurn() {
@@ -23,6 +20,7 @@ void GameManager::StepTurn() {
         player->SetTurn(false);
         
         enemy->SetTurn(true);
+        m_currentScore = m_currentScore - 10;
     }
     else {
         enemy->SetTurn(false);
@@ -30,13 +28,13 @@ void GameManager::StepTurn() {
         player->SetTurn(true);
     }
 
-
 }
 
 void GameManager::SetupLevel(Player* player, Enemy* enemy, Bird* bird) {
     this->player = player;
     this->enemy = enemy;
     this->bird = bird;
+    m_currentScore = 200;
 }
 
 
@@ -88,9 +86,12 @@ int GameManager::GetLastScore()
 void GameManager::AddScore(int score)
 {
     m_Scores.push_back(score);
-    
-    
 }
+
+void GameManager::BirdKill() {
+    m_currentScore = m_currentScore + 50;
+}
+
 
 void GameManager::WriteScores(std::string textFile)
 {
@@ -114,13 +115,12 @@ void GameManager::WriteScores(std::string textFile)
 
 }
 
-void GameManager::EndGame(bool playerWin,int playerScore)
+void GameManager::EndGame(bool playerWin)
 {
     GameEngine::Instance()->GetAudioManager()->PlaySound("Apple hit");
    
     if (playerWin) {
-        GameManager::Instance()->AddScore(200);
-        m_currentScore = playerScore;
+        GameManager::Instance()->AddScore(m_currentScore);
     }
     
     GameManager::Instance()->gameOver = true;

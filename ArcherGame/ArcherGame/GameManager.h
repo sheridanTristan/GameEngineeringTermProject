@@ -34,8 +34,9 @@ public:
 	void AddScore(int score);
 	void WriteScores(std::string textFile);
 	int GetCurrentScore() { return m_currentScore; }
+	void BirdKill();
 
-	void EndGame(bool playerWin, int  = 0);
+	void EndGame(bool playerWin);
 	void UpdateScores();
 };
 

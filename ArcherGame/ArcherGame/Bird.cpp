@@ -14,7 +14,7 @@ Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100
 	spriteSrcRect = { 0,0,100,73 };
 	spriteDestRect = { (int)(m_X - 500),(int)(m_Y)  ,50,36 };
 
-	m_dRadius = 5;
+	m_dRadius = 20;
 
 	AddAnimState("Bird", AnimStateDefinition(0, 3, 200, true, false));
 	cout << "Bird Created\n";
