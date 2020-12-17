@@ -86,9 +86,21 @@ void GameState::CheckCollision()
 			player->playerArrow->GetRadius(), enemy->apple->GetRadius())) 
 		{
 			cout << "Player has hit the enemies apple!!\n";
-			GameManager::Instance()->EndGame(true,200);
+			GameManager::Instance()->EndGame(true);
 			gameOverStart = SDL_GetTicks();
 
+		}
+		if (bird != nullptr) {
+			if (CircleCollisionTest(player->playerArrow->GetX(), player->playerArrow->GetY(),
+				bird->GetX(), bird->GetY() + 10,
+				player->playerArrow->GetRadius(), bird->GetRadius()))
+			{
+				cout << "Player has hit the bird!!\n";
+				GameManager::Instance()->BirdKill();
+				delete bird;
+				bird = nullptr;
+
+			}
 		}
 	}
 	if ( enemy->enemyArrow) {
@@ -102,8 +114,6 @@ void GameState::CheckCollision()
 			gameOverStart = SDL_GetTicks();
 		}
 	}
-
-	
 }
 
 
