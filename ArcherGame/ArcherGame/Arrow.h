@@ -24,7 +24,7 @@ public:
 		m_DY =y;
 		this->x = x;
 		this->y = y;
-		spriteSrcRect = {80,1246,194,82};
+		spriteSrcRect = {80,750,194,82};
 		spriteDestRect = {(int)x,(int)y,30,15};
 		m_dRadius = 5;
 		launchVelocity = velocity;
