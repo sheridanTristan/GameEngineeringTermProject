@@ -1,6 +1,7 @@
 #include "GameOverState.h"
 #include "MainMenuState.h"
 #include "GameManager.h"
+#include "LevelSelector.h"
 /*
  * Implementation of virtual methods in GameOverState.h
  * 
@@ -38,7 +39,8 @@ void GameOverState::Update()
 
 	if (menuButtons[btn::retry]->Clicked())
 	{
-		// back to the first stage
+		GameEngine::Instance()->GetFSM()->ChangeState(new LevelSelector());
+		return;
 	}
 
 	if (menuButtons[btn::quit]->Clicked())
