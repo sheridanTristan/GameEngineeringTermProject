@@ -57,6 +57,7 @@ public:
 
 	void UnloadMusic(AudioScope scope);
 	void UnloadSound(AudioScope scope);
+	void StopSound(int channel);
 
 	//Toggle music:: so that you can pause and resume the current music track
 	void ToggleMusic();

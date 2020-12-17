@@ -87,6 +87,7 @@ void GameState::CheckCollision()
 		{
 			cout << "Player has hit the enemies apple!!\n";
 			GameManager::Instance()->EndGame(true);
+			GameManager::Instance()->SetCurrentScore(GameManager::Instance()->GetCurrentScore() + 10);
 			gameOverStart = SDL_GetTicks();
 
 		}
@@ -151,6 +152,12 @@ void GameState::Render()
 
 	}
 
+	char scoretext[32];
+	
+	sprintf_s(scoretext, "Score: %d", GameManager::Instance()->GetCurrentScore());
+	RenderFont(true, scoretext, 50, 50);
+
+
 	if (bird) {
 		bird->Render();
 	}
@@ -169,8 +176,10 @@ void GameState::Exit()
 	delete player;
 	delete enemy;
 	delete bird;
+	GameEngine::Instance()->GetAudioManager()->StopSound(-1);
 	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
 	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
+
 	
 
 }

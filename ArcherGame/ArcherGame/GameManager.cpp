@@ -12,9 +12,9 @@ void GameManager::Initialze()
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/applehit.wav",AudioScope::GLOBAL,"Apple hit");
+    GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/birdflapping.wav", AudioScope::GLOBAL, "Flapping");
     ReadScores("scores.txt");
 }
-
 void GameManager::StepTurn() {
     if (player->GetTurn()) {
         player->SetTurn(false);
@@ -89,7 +89,9 @@ void GameManager::AddScore(int score)
 }
 
 void GameManager::BirdKill() {
-    m_currentScore = m_currentScore + 50;
+    m_currentScore = m_currentScore + 60;
+    GameEngine::Instance()->GetAudioManager()->PlaySound("Apple hit");
+    GameEngine::Instance()->GetAudioManager()->StopSound(FLAPPING_CHANNEL);
 }
 
 
@@ -125,6 +127,7 @@ void GameManager::EndGame(bool playerWin)
     
     GameManager::Instance()->gameOver = true;
     GameManager::Instance()->win = playerWin;
+    
     UpdateScores();
 }
 

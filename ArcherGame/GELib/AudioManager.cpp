@@ -138,6 +138,14 @@ void AudioManager::UnloadSound(AudioScope scope)
 	}
 }
 
+void AudioManager::StopSound(int channel)
+{
+	Mix_HaltChannel(channel);
+
+
+
+}
+
 AudioManager::~AudioManager()
 {
 	UnloadMusic((AudioScope)(AudioScope::GLOBAL | AudioScope::SESSION));
