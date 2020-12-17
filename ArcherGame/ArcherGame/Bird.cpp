@@ -5,6 +5,8 @@
 
 Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100, y + 73, 3)
 {
+
+
 	m_DX = 2.5;
 	m_Y = 80;
 	//m_DY = y;
@@ -17,6 +19,7 @@ Bird::Bird(SDL_Texture* tex, double x, double y) : SpriteExAnimated(tex, x + 100
 	m_dRadius = 20;
 
 	AddAnimState("Bird", AnimStateDefinition(0, 3, 200, true, false));
+	GameEngine::Instance()->GetAudioManager()->PlaySound("Flapping", FLAPPING_CHANNEL, -1);
 	cout << "Bird Created\n";
 }
 
