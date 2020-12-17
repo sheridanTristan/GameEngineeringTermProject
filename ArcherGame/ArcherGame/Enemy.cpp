@@ -6,7 +6,7 @@
 Enemy::Enemy(SDL_Texture* tex, double x, double y) : Player(tex, x, y)
 
 {
-	SetTurn(true);
+	SetTurn(false);
 	m_turnTime = SDL_GetTicks();
 	flippedDimensions = std::make_pair(true, false);
 	spriteSrcRect = { 0,0,330,450 };
@@ -41,10 +41,10 @@ void Enemy::Update()
 
 void Enemy::UpdateEnemy()
 {
-	if (turn ) {
+	if (turn && !GameManager::Instance()->gameOver) {
 		
 		if (SDL_TICKS_PASSED(SDL_GetTicks(), m_turnTime + m_turnTimeout) && enemyArrow == nullptr) {
-			GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
+			
 
 			this->ShootArrow();
 
@@ -55,6 +55,12 @@ void Enemy::UpdateEnemy()
 		
 	}
 	this->UpdateArrow();
+}
+
+void Enemy::OnTurnStart()
+{
+	GameEngine::Instance()->GetAudioManager()->PlaySound("Draw bow");
+
 }
 
 void Enemy::ShootArrow()

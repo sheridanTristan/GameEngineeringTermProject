@@ -11,5 +11,5 @@ Apple::Apple(SDL_Texture* tex, double x, double y) :
 }
 
 Apple:: ~Apple() {
-
+	SDL_DestroyTexture(texture);
 }

@@ -9,6 +9,7 @@
 #define NUM_SCORES 10
 
 #include "Bird.h"
+#define FLAPPING_CHANNEL 4
 
 class GameManager
 {
@@ -34,8 +35,9 @@ public:
 	void AddScore(int score);
 	void WriteScores(std::string textFile);
 	int GetCurrentScore() { return m_currentScore; }
-
-	void EndGame(bool playerWin, int  = 0);
+	void BirdKill();
+	void SetCurrentScore(int score) { m_currentScore = score; }
+	void EndGame(bool playerWin);
 	void UpdateScores();
 };
 

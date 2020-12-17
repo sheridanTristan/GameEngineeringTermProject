@@ -12,24 +12,21 @@ void GameManager::Initialze()
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/drawbow.wav", AudioScope::GLOBAL, "Draw bow");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/bowrelease.wav", AudioScope::GLOBAL, "Bow release");
     GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/applehit.wav",AudioScope::GLOBAL,"Apple hit");
+    GameEngine::Instance()->GetAudioManager()->LoadSound("Audio/birdflapping.wav", AudioScope::GLOBAL, "Flapping");
     ReadScores("scores.txt");
-   
-    
-
 }
-
 void GameManager::StepTurn() {
     if (player->GetTurn()) {
         player->SetTurn(false);
-        
+        enemy->OnTurnStart();
         enemy->SetTurn(true);
+        m_currentScore = m_currentScore - 10;
     }
     else {
         enemy->SetTurn(false);
-        
+        player->OnTurnStart();
         player->SetTurn(true);
     }
-
 
 }
 
@@ -37,6 +34,7 @@ void GameManager::SetupLevel(Player* player, Enemy* enemy, Bird* bird) {
     this->player = player;
     this->enemy = enemy;
     this->bird = bird;
+    m_currentScore = 200;
 }
 
 
@@ -60,7 +58,7 @@ void GameManager::ReadScores(std::string textFile) {
                 try {
                     int iScore = std::stoi(score);
                     scores.push_back(iScore);
-                    std::cout << iScore << "\n";
+                    
                     score.clear();
                 }
                 catch (std::invalid_argument e) {
@@ -88,9 +86,14 @@ int GameManager::GetLastScore()
 void GameManager::AddScore(int score)
 {
     m_Scores.push_back(score);
-    
-    
 }
+
+void GameManager::BirdKill() {
+    m_currentScore = m_currentScore + 60;
+    GameEngine::Instance()->GetAudioManager()->PlaySound("Apple hit");
+    GameEngine::Instance()->GetAudioManager()->StopSound(FLAPPING_CHANNEL);
+}
+
 
 void GameManager::WriteScores(std::string textFile)
 {
@@ -114,17 +117,17 @@ void GameManager::WriteScores(std::string textFile)
 
 }
 
-void GameManager::EndGame(bool playerWin,int playerScore)
+void GameManager::EndGame(bool playerWin)
 {
     GameEngine::Instance()->GetAudioManager()->PlaySound("Apple hit");
    
     if (playerWin) {
-        GameManager::Instance()->AddScore(200);
-        m_currentScore = playerScore;
+        GameManager::Instance()->AddScore(m_currentScore);
     }
     
     GameManager::Instance()->gameOver = true;
     GameManager::Instance()->win = playerWin;
+    
     UpdateScores();
 }
 

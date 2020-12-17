@@ -27,7 +27,7 @@ void GameState::Enter()
 	bg = new SpriteEx(bgSpriteTex, bgSrcRect, bgDestRect);
 
 	player = new Player(archerSpriteTex, bgDestRect.w * 0.15, bgDestRect.h - 100);
-	enemy = new Enemy(archerSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
+	enemy = new Enemy(enemySpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
 
 	bird = new Bird(birdSpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 1000);
 	GameManager::Instance()->SetupLevel(player, enemy, bird);
@@ -86,9 +86,22 @@ void GameState::CheckCollision()
 			player->playerArrow->GetRadius(), enemy->apple->GetRadius())) 
 		{
 			cout << "Player has hit the enemies apple!!\n";
-			GameManager::Instance()->EndGame(true,200);
+			GameManager::Instance()->EndGame(true);
+			GameManager::Instance()->SetCurrentScore(GameManager::Instance()->GetCurrentScore() + 10);
 			gameOverStart = SDL_GetTicks();
 
+		}
+		if (bird != nullptr) {
+			if (CircleCollisionTest(player->playerArrow->GetX(), player->playerArrow->GetY(),
+				bird->GetX(), bird->GetY() + 10,
+				player->playerArrow->GetRadius(), bird->GetRadius()))
+			{
+				cout << "Player has hit the bird!!\n";
+				GameManager::Instance()->BirdKill();
+				delete bird;
+				bird = nullptr;
+
+			}
 		}
 	}
 	if ( enemy->enemyArrow) {
@@ -102,8 +115,6 @@ void GameState::CheckCollision()
 			gameOverStart = SDL_GetTicks();
 		}
 	}
-
-	
 }
 
 
@@ -141,6 +152,12 @@ void GameState::Render()
 
 	}
 
+	char scoretext[32];
+	
+	sprintf_s(scoretext, "Score: %d", GameManager::Instance()->GetCurrentScore());
+	RenderFont(true, scoretext, 50, 50);
+
+
 	if (bird) {
 		bird->Render();
 	}
@@ -153,12 +170,16 @@ void GameState::Exit()
 {
 	SDL_DestroyTexture(bgSpriteTex);
 	SDL_DestroyTexture(archerSpriteTex);
+	SDL_DestroyTexture(enemySpriteTex);
+	SDL_DestroyTexture(birdSpriteTex);
 	delete bg;
 	delete player;
 	delete enemy;
 	delete bird;
+	GameEngine::Instance()->GetAudioManager()->StopSound(-1);
 	GameEngine::Instance()->GetAudioManager()->UnloadSound(AudioScope::SESSION);
 	GameEngine::Instance()->GetAudioManager()->UnloadMusic(AudioScope::SESSION);
+
 	
 
 }
