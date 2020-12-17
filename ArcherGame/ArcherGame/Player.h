@@ -38,5 +38,5 @@ public:
 
 	void SetTurn(bool t){ turn = t; }
 	bool GetTurn() { return turn; }
-	void OnGameWin();
+	void OnTurnStart();
 };

@@ -7,7 +7,7 @@ Player::Player(SDL_Texture* tex, double x, double y) :
 	SpriteExAnimated(tex, x - 50, y - 50, 0)
 {
 	SDL_Texture* appleTexture = GameEngine::Instance()->LoadTexture("Img/Apple.png");
-	turn = false;
+	turn = true;
 	spriteSrcRect = { 0,0,330,450 };
 	spriteDestRect = { (int)(m_X - 50),(int)(m_Y - 50)  ,70,80 };
 	apple = new Apple(appleTexture, m_X-20, m_Y-60);
@@ -135,6 +135,10 @@ void Player::UpdateArrow() {
 			playerArrow = nullptr;
 		}
 	}
+}
+
+void Player::OnTurnStart()
+{
 }
 
 

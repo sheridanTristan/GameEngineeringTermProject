@@ -32,4 +32,5 @@ public:
 	}
 	bool GetTurn() { return turn; }
 	void SetTurnTime(Uint32 t) { m_turnTime = t; }
+	void OnTurnStart();
 };

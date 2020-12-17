@@ -21,12 +21,12 @@ void GameManager::Initialze()
 void GameManager::StepTurn() {
     if (player->GetTurn()) {
         player->SetTurn(false);
-        
+        enemy->OnTurnStart();
         enemy->SetTurn(true);
     }
     else {
         enemy->SetTurn(false);
-        
+        player->OnTurnStart();
         player->SetTurn(true);
     }
 
