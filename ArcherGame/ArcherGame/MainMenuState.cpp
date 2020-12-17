@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
-
+#include "RosterState.h"
 #include "MainMenuState.h"
 #include "PauseMenuState.h"
 #include "HighScoreState.h"
@@ -51,7 +51,7 @@ void MainMenuState::Update()
 	// if play is clicked, prompt the user to enter name
 	if (menuButtons[btn::play]->Clicked())
 	{
-		GameEngine::Instance()->GetFSM()->ChangeState(new LevelSelector());
+		GameEngine::Instance()->GetFSM()->ChangeState(new RosterState());
 		return;
 	}
 	// if exit is clicked, game closes

@@ -28,6 +28,7 @@
     </ClCompile>
     <ClCompile Include="GameLevel4.cpp" />
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="RosterState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Apple.h" />
@@ -58,6 +59,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="GameLevel4.h" />
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="RosterState.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

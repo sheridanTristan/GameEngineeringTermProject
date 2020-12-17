@@ -190,6 +190,7 @@
     <ClInclude Include="GameLevel4.h" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseMenuState.cpp" />
+    <ClCompile Include="RosterState.cpp" />
     <ClCompile Include="VictoryState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +198,7 @@
     <ClInclude Include="HighScoreState.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseMenuState.h" />
+    <ClInclude Include="RosterState.h" />
     <ClInclude Include="VictoryState.h" />
   </ItemGroup>
   <ItemGroup>
