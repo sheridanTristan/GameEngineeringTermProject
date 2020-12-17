@@ -64,8 +64,6 @@ void PauseMenuState::Exit()
 		delete menuButtons[i];
 		menuButtons[i] = nullptr;
 	}
-	SDL_DestroyTexture(bgSpriteTex);
-	delete bg;
 
 	menuButtons.clear();
 	menuButtons.shrink_to_fit();

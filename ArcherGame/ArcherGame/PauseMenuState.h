@@ -13,9 +13,7 @@ class PauseMenuState : public ScreenState
 {
 
 protected:
-	SDL_Texture* bgSpriteTex;
-	SpriteEx* bg;
-
+	
 	vector<Button*> menuButtons;
 	enum btn { resume, exit };
 
